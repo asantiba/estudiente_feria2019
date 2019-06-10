@@ -9,4 +9,8 @@ Credenciales
 	username: estudiente
 	port: 3306
 	Default Schema: estudiente
-	*password consulte al administrador
+	*password consulte al administrador*
+
+Instalar modulos python
+	pip install Django
+	pip install mysqlclient (en caso de no funcionar descargar https://www.lfd.uci.edu/~gohlke/pythonlibs/)
