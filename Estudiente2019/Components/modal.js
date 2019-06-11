@@ -3,11 +3,10 @@ import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
 import {AppRegistry, Image } from 'react-native';
 import {Modal, TouchableHighlight, Alert, TouchableOpacity} from 'react-native';
 
-
 export default class ModalDiente extends Component {
 
-    diente='';
-    piezadiente='';
+  diente='';
+  piezadiente='';
   state = {
     modalVisible: false,
   };
@@ -99,32 +98,8 @@ export default class ModalDiente extends Component {
           style={{width: 193, height: 110,}}>
               <Image source={require('./images/placeholder.png')} style={{width: 193, height: 110,}}/>
         </TouchableHighlight>
-        <TouchableHighlight
-          onPress={() => {
-            this.setModalVisible(true);
-            this.setDiente('premolar');
-          }}
-          style={{width: 193, height: 110,}}>
-              <Image source={require('./images/placeholder.png')} style={{width: 193, height: 110,}}/>
-        </TouchableHighlight>
-        <TouchableHighlight
-          onPress={() => {
-            this.setModalVisible(true);
-            this.setDiente('molar');
-          }}
-          style={{width: 193, height: 110,}}>
-              <Image source={require('./images/placeholder.png')} style={{width: 193, height: 110,}}/>
-        </TouchableHighlight>
-        <TouchableHighlight
-          onPress={() => {
-            this.setModalVisible(true);
-            this.setDiente('canino');
-          }}
-          style={{width: 193, height: 110,}}>
-              <Image source={require('./images/placeholder.png')} style={{width: 193, height: 110,}}/>
-        </TouchableHighlight>
 
       </View>
     );
   }
-}
+};
