@@ -1,19 +1,16 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.http import JsonResponse
 
 # Import Models
-from .models import Estudiente
+from .models import *
 
 # Create your views here.
 
 def index(request):
-# 	estudientes = Estudiente.objects.all()
-# 	output = ', '.join([estudiente.nombre for estudiente in estudientes])
-# 	print(output)
-    return HttpResponse("output")
-	# views_estudientes = loader.get_template("views/estudientes.html")
-	# data = Context({"estudientes": estudientes})
-    # return HttpResponse(views_estudientes.render(data))
+	if request.method == 'GET':
+		estudiente = Estudiente.objects.all()
+		return render(request, 'estudientes.html', {'estudientes': estudiente})

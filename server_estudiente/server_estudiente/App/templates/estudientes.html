@@ -1,0 +1,21 @@
+<h2>Lista de estudiantes disponibles para este tratamiento</h2>
+<div class="container">
+	<table class="table table-stripped">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Correo</th>
+			</tr>			
+		</thead>
+		<tbody>
+			{% for estudiente in estudientes %}
+			<tr>
+				<td>{{ estudiente.nombre }}</td>
+				<td>{{ estudiente.apellido }}</td>
+				<td>{{ estudiente.correo }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
