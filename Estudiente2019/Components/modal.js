@@ -5,17 +5,37 @@ import {Modal, TouchableHighlight, Alert, TouchableOpacity} from 'react-native';
 
 
 export default class ModalDiente extends Component {
+
+    diente='';
+    piezadiente='';
   state = {
     modalVisible: false,
   };
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
-  }
+  };
+  setDiente(pieza){
+    this.diente = pieza;
+    switch (pieza){
+        case 'molar':
+            this.piezadiente= require('./images/molar.png');
+            break;
+        case 'premolar':
+            this.piezadiente= require('./images/premolar.png');
+            break;
+        case 'canino':
+            this.piezadiente=require('./images/canino.png');
+            break;
+        case 'incisivo':
+            this.piezadiente=require('./images/incisivo.png');
+            break;
+    };
+  };
 
   render() {
     let pic = {
-          uri: './images/placeholder.png'
-        };
+              uri: './images/placeholder.png'
+            };
     return (
       <View style={{marginTop: 22}}>
         <Modal
@@ -29,12 +49,12 @@ export default class ModalDiente extends Component {
 
                 <View style={{flexDirection: 'row',  margin:10}}>
 
-                    <Image source={require('./images/placeholder.png')} style={{width: 200, height: 200}}/>
+                    <Image source={this.piezadiente} style={{width: 200, height: 200}}/>
 
-                    <View style={{flex: 1, margin:5,marginTop:0, marginBottom:0, flexDirection: 'column', backgroundColor: '#f0f8ff'}}>
-                        <View style={{justifyContent: 'center'}} >
-                            <Text style={{fontWeight: 'bold', color:'midnightblue',  fontSize: 12}}>
-                                Pieza n° X
+                    <View style={{flex: 1, margin:5 ,marginTop:0, marginBottom:0, flexDirection: 'column', backgroundColor: '#f0f8ff'}}>
+                        <View style={{justifyContent:'center', alignItems: 'center'}} >
+                            <Text style={{fontWeight: 'bold', color:'midnightblue',  fontSize: 20}}>
+                                {this.diente}
                             </Text>
                         </View>
                     </View>
@@ -74,10 +94,36 @@ export default class ModalDiente extends Component {
         <TouchableHighlight
           onPress={() => {
             this.setModalVisible(true);
+            this.setDiente('incisivo');
           }}
           style={{width: 193, height: 110,}}>
               <Image source={require('./images/placeholder.png')} style={{width: 193, height: 110,}}/>
         </TouchableHighlight>
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+            this.setDiente('premolar');
+          }}
+          style={{width: 193, height: 110,}}>
+              <Image source={require('./images/placeholder.png')} style={{width: 193, height: 110,}}/>
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+            this.setDiente('molar');
+          }}
+          style={{width: 193, height: 110,}}>
+              <Image source={require('./images/placeholder.png')} style={{width: 193, height: 110,}}/>
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+            this.setDiente('canino');
+          }}
+          style={{width: 193, height: 110,}}>
+              <Image source={require('./images/placeholder.png')} style={{width: 193, height: 110,}}/>
+        </TouchableHighlight>
+
       </View>
     );
   }
