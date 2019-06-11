@@ -5,11 +5,14 @@
 #   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
+from __future__ import unicode_literals
+
 from django.db import models
+from django.contrib import admin
 
 
 class AuthGroup(models.Model):
-    name = models.CharField(unique=True, max_length=80)
+    name = models.CharField(unique=True, max_length=150)
 
     class Meta:
         managed = False
@@ -43,7 +46,7 @@ class AuthUser(models.Model):
     is_superuser = models.IntegerField()
     username = models.CharField(unique=True, max_length=150)
     first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=150)
     email = models.CharField(max_length=254)
     is_staff = models.IntegerField()
     is_active = models.IntegerField()
@@ -75,7 +78,8 @@ class AuthUserUserPermissions(models.Model):
 
 
 class Consulta(models.Model):
-    idpaciente = models.ForeignKey('Paciente', models.DO_NOTHING, db_column='idpaciente', primary_key=True)
+    idconsulta = models.AutoField(primary_key=True)
+    idpaciente = models.ForeignKey('Paciente', models.DO_NOTHING, db_column='idpaciente')
     idestudiente = models.ForeignKey('Estudiente', models.DO_NOTHING, db_column='idestudiente')
     comentario = models.TextField(blank=True, null=True)
     motivo = models.CharField(max_length=45, blank=True, null=True)
@@ -84,11 +88,11 @@ class Consulta(models.Model):
     class Meta:
         managed = False
         db_table = 'consulta'
-        unique_together = (('idpaciente', 'idestudiente'),)
 
 
 class Dentadura(models.Model):
-    idpaciente = models.ForeignKey('Paciente', models.DO_NOTHING, db_column='idpaciente', primary_key=True)
+    iddentadura = models.AutoField(primary_key=True)
+    idpaciente = models.ForeignKey('Paciente', models.DO_NOTHING, db_column='idpaciente')
     iddiente = models.ForeignKey('Diente', models.DO_NOTHING, db_column='iddiente')
     estado = models.CharField(max_length=200, blank=True, null=True)
     comentario_detallado = models.CharField(max_length=200, blank=True, null=True)
@@ -96,7 +100,6 @@ class Dentadura(models.Model):
     class Meta:
         managed = False
         db_table = 'dentadura'
-        unique_together = (('idpaciente', 'iddiente'),)
 
 
 class DetalleEnfermedad(models.Model):
@@ -123,7 +126,7 @@ class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
     object_id = models.TextField(blank=True, null=True)
     object_repr = models.CharField(max_length=200)
-    action_flag = models.PositiveSmallIntegerField()
+    action_flag = models.SmallIntegerField()
     change_message = models.TextField()
     content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
@@ -186,7 +189,7 @@ class Estudiente(models.Model):
 
 
 class Ficha(models.Model):
-    idficha = models.IntegerField(primary_key=True)
+    idficha = models.AutoField(primary_key=True)
     idpaciente = models.ForeignKey('Paciente', models.DO_NOTHING, db_column='idpaciente')
     fecha_actualizacion = models.DateTimeField(blank=True, null=True)
     tipo_sangre = models.CharField(max_length=45, blank=True, null=True)
@@ -194,7 +197,6 @@ class Ficha(models.Model):
     class Meta:
         managed = False
         db_table = 'ficha'
-        unique_together = (('idficha', 'idpaciente'),)
 
 
 class Paciente(models.Model):
@@ -217,3 +219,11 @@ class Paciente(models.Model):
     class Meta:
         managed = False
         db_table = 'paciente'
+
+admin.site.register(Paciente)
+admin.site.register(Estudiente)
+admin.site.register(Enfermedad)
+admin.site.register(Diente)
+admin.site.register(Dentadura)
+admin.site.register(DetalleEnfermedad)
+admin.site.register(Consulta)
