@@ -5,10 +5,15 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Import Models
-from models import *
+from .models import Estudiente
 
 # Create your views here.
 
 def index(request):
-
-    return HttpResponse("Test vista 1. Bienvenido paciente ")
+# 	estudientes = Estudiente.objects.all()
+# 	output = ', '.join([estudiente.nombre for estudiente in estudientes])
+# 	print(output)
+    return HttpResponse("output")
+	# views_estudientes = loader.get_template("views/estudientes.html")
+	# data = Context({"estudientes": estudientes})
+    # return HttpResponse(views_estudientes.render(data))

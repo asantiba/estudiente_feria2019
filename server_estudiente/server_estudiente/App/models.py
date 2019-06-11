@@ -187,7 +187,6 @@ class Estudiente(models.Model):
         managed = False
         db_table = 'estudiente'
 
-
 class Ficha(models.Model):
     idficha = models.AutoField(primary_key=True)
     idpaciente = models.ForeignKey('Paciente', models.DO_NOTHING, db_column='idpaciente')
