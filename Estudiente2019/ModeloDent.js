@@ -8,12 +8,57 @@
 
 import React, {Component} from 'react';
 import {Dimensions, Platform, StyleSheet, Text, View, Image, ImageBackground, AppRegistry, Alert, Button, TouchableWithoutFeedback} from 'react-native';
-
+import ModalDiente from './modal';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 export default class ModeloDental extends Component {
+	constructor(props){
+		super(props);
+		this.state  = {
+		  loading: false,
+		  data: [],
+		  error: null,
+		  refreshing: false,
+		  base_url: "http://127.0.0.1:8000/"
+	
+	  }}
+	  componentDidMount() {
+		this.fetchDataFromApi();
+	
+	  }
+	  fetchDataFromApi = ()  => {
+		const url = "http://127.0.0.1:8000/get_dent_list";
+	
+		this.setState({ loading: true });
+	
+		fetch(url)
+		  .then(res => res.json())
+		  .then(res => {
+	
+			this.setState({
+			  data: res,
+			  error: null,
+			  loading: false,
+			  refreshing: false
+			});
+		  })
+		  .catch(error => {
+			this.setState({ error, loading : false });
+		  })
+	  };
+	
+	  handleRefresh = () => {
+		this.setState(
+		  {
+			refreshing: true
+		  },
+		  () => {
+			this.fetchDataFromApi();
+		  }
+		);
+	  };
 	render() {
 		return (
 			<View style={{
@@ -24,7 +69,7 @@ export default class ModeloDental extends Component {
 				<ImageBackground source={require('./images/modeloDental.png')} style={{height: '100%', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
 					
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.07*SCREEN_HEIGHT, left: 0.4*SCREEN_WIDTH}}>
-						<Button
+						<ModalDiente
 							onPress={() => {
 								Alert.alert('Pieza 11, incisivo');
 							}}

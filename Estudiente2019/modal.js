@@ -62,7 +62,7 @@ export default class ModalDiente extends Component {
 
                 <View style={{flex: 1, marginTop: 10, margin:10,}}>
                     <Text style={{fontWeight: 'bold', color:'midnightblue',  fontSize: 20}}>
-                        Informacion:
+                        Informacion: Tiene caries en palatino
                     </Text>
                     <View style={{flex: 1, backgroundColor: '#f0f8ff', marginTop: 5}}>
                         <View style={{margin: 10 , marginBottom:3}}>
@@ -96,7 +96,7 @@ export default class ModalDiente extends Component {
             this.setDiente('incisivo');
           }}
           style={{width: 193, height: 110,}}>
-              <Image source={require('./images/placeholder.png')} style={{width: 193, height: 110,}}/>
+              <Image source={require('./images/placeholder.png')} style={{width: 93, height: 55,}}/>
         </TouchableHighlight>
 
       </View>
