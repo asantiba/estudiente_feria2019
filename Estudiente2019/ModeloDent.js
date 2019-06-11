@@ -7,8 +7,11 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Image, ImageBackground, AppRegistry, Alert, Button, TouchableWithoutFeedback} from 'react-native';
+import {Dimensions, Platform, StyleSheet, Text, View, Image, ImageBackground, AppRegistry, Alert, Button, TouchableWithoutFeedback} from 'react-native';
 
+
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 export default class ModeloDental extends Component {
 	render() {
@@ -20,7 +23,7 @@ export default class ModeloDental extends Component {
 			}}>
 				<ImageBackground source={require('./images/modeloDental.png')} style={{height: '100%', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
 					
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 60, left: 190}}>
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.07*SCREEN_HEIGHT, left: 0.4*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 11, incisivo');
@@ -29,7 +32,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 67, left: 147}}>
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.07816*SCREEN_HEIGHT, left: 0.30947*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 12, incisivo');
@@ -38,7 +41,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 100, left: 110}}>
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.11666*SCREEN_HEIGHT, left: 0.23157*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 13, canino');
@@ -47,7 +50,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '10%', position: 'absolute', top: 140, left: 90}}>
+					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.16333*SCREEN_HEIGHT, left: 0.18947*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 14, premolar');
@@ -56,7 +59,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 180, left: 80}}>
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.21000*SCREEN_HEIGHT, left: 0.16842*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 15, premolar');
@@ -65,7 +68,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '13%', position: 'absolute', top: 230, left: 60}}>
+					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.26833*SCREEN_HEIGHT, left: 0.12631*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 16, molar');
@@ -74,7 +77,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '13%', position: 'absolute', top: 290, left: 55}}>
+					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.33833*SCREEN_HEIGHT, left: 0.11578*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 17, molar');
@@ -83,7 +86,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '10%', position: 'absolute', top: 345, left: 55}}>
+					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.4025*SCREEN_HEIGHT, left: 0.11578*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 18, molar');
@@ -95,7 +98,7 @@ export default class ModeloDental extends Component {
 					
 					
 					
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 55, right: 200}}>
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.06416*SCREEN_HEIGHT, right: 0.42105*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 21, incisivo');
@@ -104,7 +107,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 67, right: 153}}>
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.07816*SCREEN_HEIGHT, right: 0.32210*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 22, incisivo');
@@ -113,7 +116,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 95, right: 117}}>
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.11083*SCREEN_HEIGHT, right: 0.24631*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 23, canino');
@@ -122,7 +125,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '10%', position: 'absolute', top: 132, right: 95}}>
+					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.154*SCREEN_HEIGHT, right: 0.2*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 24, premolar');
@@ -131,7 +134,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 170, right: 80}}>
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.19833*SCREEN_HEIGHT, right: 0.16842*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 25, premolar');
@@ -140,7 +143,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '13%', position: 'absolute', top: 220, right: 65}}>
+					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.25666*SCREEN_HEIGHT, right: 0.13684*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 26, molar');
@@ -149,7 +152,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '13%', position: 'absolute', top: 280, right: 55}}>
+					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.32666*SCREEN_HEIGHT, right: 0.11578*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 27, molar');
@@ -158,7 +161,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '10%', position: 'absolute', top: 335, right: 57}}>
+					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.39083*SCREEN_HEIGHT, right: 0.12*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 28, molar');
@@ -170,7 +173,7 @@ export default class ModeloDental extends Component {
 					
 					
 					
-					<View style={{height: '10%', width: '6%', position: 'absolute', bottom: -5, left: 217}}>
+					<View style={{height: '10%', width: '6%', position: 'absolute', bottom: -0.00583*SCREEN_HEIGHT, left: 0.45684*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 41, incisivo');
@@ -179,7 +182,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '6%', position: 'absolute', bottom: 0, left: 185}}>
+					<View style={{height: '10%', width: '6%', position: 'absolute', bottom: 0, left: 0.38947*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 42, incisivo');
@@ -188,7 +191,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '7%', position: 'absolute', bottom: 10, left: 150}}>
+					<View style={{height: '10%', width: '7%', position: 'absolute', bottom: 0.01166*SCREEN_HEIGHT, left: 0.31578*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 43, canino');
@@ -197,7 +200,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '9%', position: 'absolute', bottom: 50, left: 127}}>
+					<View style={{height: '10%', width: '9%', position: 'absolute', bottom: 0.05833*SCREEN_HEIGHT, left: 0.26736*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 44, premolar');
@@ -206,7 +209,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '9%', position: 'absolute', bottom: 93, left: 107}}>
+					<View style={{height: '10%', width: '9%', position: 'absolute', bottom: 0.10850*SCREEN_HEIGHT, left: 0.22526*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 45, premolar');
@@ -215,7 +218,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '11%', position: 'absolute', bottom: 150, left: 85}}>
+					<View style={{height: '10%', width: '11%', position: 'absolute', bottom: 0.175*SCREEN_HEIGHT, left: 0.17894*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 46, molar');
@@ -224,7 +227,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '12%', position: 'absolute', bottom: 220, left: 72}}>
+					<View style={{height: '10%', width: '12%', position: 'absolute', bottom: 0.25666*SCREEN_HEIGHT, left: 0.15157*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 47, molar');
@@ -233,7 +236,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '10%', position: 'absolute', bottom: 280, left: 60}}>
+					<View style={{height: '10%', width: '10%', position: 'absolute', bottom: 0.32666*SCREEN_HEIGHT, left: 0.12631*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 48, molar');
@@ -245,7 +248,7 @@ export default class ModeloDental extends Component {
 					
 					
 					
-					<View style={{height: '10%', width: '6%', position: 'absolute', bottom: -5, right: 200}}>
+					<View style={{height: '10%', width: '6%', position: 'absolute', bottom: -0.00583*SCREEN_HEIGHT, right: 0.42105*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 31, incisivo');
@@ -254,7 +257,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '6%', position: 'absolute', bottom: 0, right: 170}}>
+					<View style={{height: '10%', width: '6%', position: 'absolute', bottom: 0, right: 0.35789*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 32, incisivo');
@@ -263,7 +266,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '7%', position: 'absolute', bottom: 18, right: 135}}>
+					<View style={{height: '10%', width: '7%', position: 'absolute', bottom: 0.021*SCREEN_HEIGHT, right: 0.28421*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 33, canino');
@@ -272,7 +275,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 60, right: 113}}>
+					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.07*SCREEN_HEIGHT, right: 0.23789*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 34, premolar');
@@ -281,7 +284,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '9%', position: 'absolute', bottom: 103, right: 97}}>
+					<View style={{height: '10%', width: '9%', position: 'absolute', bottom: 0.12016*SCREEN_HEIGHT, right: 0.20421*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 35, premolar');
@@ -290,7 +293,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '12%', position: 'absolute', bottom: 158, right: 77}}>
+					<View style={{height: '10%', width: '12%', position: 'absolute', bottom: 0.18433*SCREEN_HEIGHT, right: 0.16210*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 36, molar');
@@ -299,7 +302,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '12%', position: 'absolute', bottom: 220, right: 62}}>
+					<View style={{height: '10%', width: '12%', position: 'absolute', bottom: 0.25666*SCREEN_HEIGHT, right: 0.13052*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 37, molar');
@@ -308,7 +311,7 @@ export default class ModeloDental extends Component {
 							color="#00000000"
 						/>
 					</View>
-					<View style={{height: '10%', width: '10%', position: 'absolute', bottom: 290, right: 57}}>
+					<View style={{height: '10%', width: '10%', position: 'absolute', bottom: 0.33833*SCREEN_HEIGHT, right: 0.12*SCREEN_WIDTH}}>
 						<Button
 							onPress={() => {
 								Alert.alert('Pieza 38, molar');
