@@ -20,5 +20,6 @@ from App import views
 
 urlpatterns = [
     url(r'^index/', views.index, name='index'),
+    url(r'^estudientes/', views.estudientes, name='estudientes'),
     url(r'^admin/', admin.site.urls),
 ]
