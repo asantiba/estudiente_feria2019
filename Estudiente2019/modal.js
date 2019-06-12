@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
 import {AppRegistry, Image } from 'react-native';
-import {Modal, TouchableHighlight, Alert, TouchableOpacity} from 'react-native';
+import {Modal, TouchableHighlight, Alert, TouchableOpacity, TouchableWithoutFeedback, Rectangle} from 'react-native';
 
 export default class ModalDiente extends Component {
 
@@ -93,10 +93,10 @@ export default class ModalDiente extends Component {
         <TouchableHighlight
           onPress={() => {
             this.setModalVisible(true);
-            this.setDiente('incisivo');
+            this.setDiente(this.props.tipoPiezaDental);
           }}
-          style={{width: 193, height: 110,}}>
-              <Image source={require('./images/placeholder.png')} style={{width: 93, height: 55,}}/>
+          style={{width: 35, height: 40}}>
+		  <View style={{flex: 1, backgroundColor: '#2196F388'}}/>
         </TouchableHighlight>
 
       </View>

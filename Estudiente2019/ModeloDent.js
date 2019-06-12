@@ -66,15 +66,17 @@ export default class ModeloDental extends Component {
 				alignItems: 'center',
 				justifyContent: 'center'
 			}}>
-				<ImageBackground source={require('./images/modeloDental.png')} style={{height: '100%', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+				<ImageBackground source={require('./images/modeloDent.png')} style={{height: '100%', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
 					
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.07*SCREEN_HEIGHT, left: 0.4*SCREEN_WIDTH}}>
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.01*SCREEN_HEIGHT, left: 0.42*SCREEN_WIDTH}}>
 						<ModalDiente
 							onPress={() => {
 								Alert.alert('Pieza 11, incisivo');
 							}}
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='incisivo'
+							
 						/>
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.07816*SCREEN_HEIGHT, left: 0.30947*SCREEN_WIDTH}}>
