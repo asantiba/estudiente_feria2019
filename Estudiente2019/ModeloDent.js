@@ -70,301 +70,267 @@ export default class ModeloDental extends Component {
 					
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.01*SCREEN_HEIGHT, left: 0.42*SCREEN_WIDTH}}>
 						<ModalDiente
-							onPress={() => {
-								Alert.alert('Pieza 11, incisivo');
-							}}
 							title=" "
 							color="#00000000"
 							tipoPiezaDental='incisivo'
-							
+							idPiezaDental='11'
 						/>
 					</View>
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.07816*SCREEN_HEIGHT, left: 0.30947*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 12, incisivo');
-							}}
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.028*SCREEN_HEIGHT, left: 0.34*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='incisivo'
+							idPiezaDental='12'
 						/>
 					</View>
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.11666*SCREEN_HEIGHT, left: 0.23157*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 13, canino');
-							}}
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.053*SCREEN_HEIGHT, left: 0.26*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='canino'
+							idPiezaDental='13'
 						/>
 					</View>
-					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.16333*SCREEN_HEIGHT, left: 0.18947*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 14, premolar');
-							}}
+					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.088*SCREEN_HEIGHT, left: 0.214*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='premolar'
+							idPiezaDental='14'
 						/>
 					</View>
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.21000*SCREEN_HEIGHT, left: 0.16842*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 15, premolar');
-							}}
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.138*SCREEN_HEIGHT, left: 0.17*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='premolar'
+							idPiezaDental='15'
 						/>
 					</View>
-					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.26833*SCREEN_HEIGHT, left: 0.12631*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 16, molar');
-							}}
+					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.19*SCREEN_HEIGHT, left: 0.13*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='molar'
+							idPiezaDental='16'
 						/>
 					</View>
-					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.33833*SCREEN_HEIGHT, left: 0.11578*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 17, molar');
-							}}
+					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.265*SCREEN_HEIGHT, left: 0.11*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='molar'
+							idPiezaDental='17'
 						/>
 					</View>
-					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.4025*SCREEN_HEIGHT, left: 0.11578*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 18, molar');
-							}}
+					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.335*SCREEN_HEIGHT, left: 0.095*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='molar'
+							idPiezaDental='18'
 						/>
 					</View>
 					
 					
 					
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.06416*SCREEN_HEIGHT, right: 0.42105*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 21, incisivo');
-							}}
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.01*SCREEN_HEIGHT, right: 0.41*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='incisivo'
+							idPiezaDental='21'
 						/>
 					</View>
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.07816*SCREEN_HEIGHT, right: 0.32210*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 22, incisivo');
-							}}
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.028*SCREEN_HEIGHT, right: 0.33*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='incisivo'
+							idPiezaDental='22'
 						/>
 					</View>
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.11083*SCREEN_HEIGHT, right: 0.24631*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 23, canino');
-							}}
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.053*SCREEN_HEIGHT, right: 0.25*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='canino'
+							idPiezaDental='23'
 						/>
 					</View>
-					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.154*SCREEN_HEIGHT, right: 0.2*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 24, premolar');
-							}}
+					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.088*SCREEN_HEIGHT, right: 0.204*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='premolar'
+							idPiezaDental='24'
 						/>
 					</View>
-					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.19833*SCREEN_HEIGHT, right: 0.16842*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 25, premolar');
-							}}
+					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.138*SCREEN_HEIGHT, right: 0.16*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='premolar'
+							idPiezaDental='25'
 						/>
 					</View>
-					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.25666*SCREEN_HEIGHT, right: 0.13684*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 26, molar');
-							}}
+					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.19*SCREEN_HEIGHT, right: 0.08*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='molar'
+							idPiezaDental='26'
 						/>
 					</View>
-					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.32666*SCREEN_HEIGHT, right: 0.11578*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 27, molar');
-							}}
+					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.265*SCREEN_HEIGHT, right: 0.055*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='molar'
+							idPiezaDental='27'
 						/>
 					</View>
-					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.39083*SCREEN_HEIGHT, right: 0.12*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 28, molar');
-							}}
+					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.335*SCREEN_HEIGHT, right: 0.065*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='molar'
+							idPiezaDental='28'
 						/>
 					</View>
 					
 					
 					
-					<View style={{height: '10%', width: '6%', position: 'absolute', bottom: -0.00583*SCREEN_HEIGHT, left: 0.45684*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 41, incisivo');
-							}}
+					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.02*SCREEN_HEIGHT, left: 0.42*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='incisivo'
+							idPiezaDental='41'
 						/>
 					</View>
-					<View style={{height: '10%', width: '6%', position: 'absolute', bottom: 0, left: 0.38947*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 42, incisivo');
-							}}
+					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.038*SCREEN_HEIGHT, left: 0.34*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='incisivo'
+							idPiezaDental='42'
 						/>
 					</View>
-					<View style={{height: '10%', width: '7%', position: 'absolute', bottom: 0.01166*SCREEN_HEIGHT, left: 0.31578*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 43, canino');
-							}}
+					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.063*SCREEN_HEIGHT, left: 0.3*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='canino'
+							idPiezaDental='43'
 						/>
 					</View>
-					<View style={{height: '10%', width: '9%', position: 'absolute', bottom: 0.05833*SCREEN_HEIGHT, left: 0.26736*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 44, premolar');
-							}}
+					<View style={{height: '10%', width: '10%', position: 'absolute', bottom: 0.098*SCREEN_HEIGHT, left: 0.235*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='premolar'
+							idPiezaDental='44'
 						/>
 					</View>
-					<View style={{height: '10%', width: '9%', position: 'absolute', bottom: 0.10850*SCREEN_HEIGHT, left: 0.22526*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 45, premolar');
-							}}
+					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.148*SCREEN_HEIGHT, left: 0.19*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='premolar'
+							idPiezaDental='45'
 						/>
 					</View>
-					<View style={{height: '10%', width: '11%', position: 'absolute', bottom: 0.175*SCREEN_HEIGHT, left: 0.17894*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 46, molar');
-							}}
+					<View style={{height: '10%', width: '13%', position: 'absolute', bottom: 0.2*SCREEN_HEIGHT, left: 0.14*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='molar'
+							idPiezaDental='46'
 						/>
 					</View>
-					<View style={{height: '10%', width: '12%', position: 'absolute', bottom: 0.25666*SCREEN_HEIGHT, left: 0.15157*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 47, molar');
-							}}
+					<View style={{height: '10%', width: '13%', position: 'absolute', bottom: 0.275*SCREEN_HEIGHT, left: 0.11*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='molar'
+							idPiezaDental='47'
 						/>
 					</View>
-					<View style={{height: '10%', width: '10%', position: 'absolute', bottom: 0.32666*SCREEN_HEIGHT, left: 0.12631*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 48, molar');
-							}}
+					<View style={{height: '10%', width: '10%', position: 'absolute', bottom: 0.345*SCREEN_HEIGHT, left: 0.095*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='molar'
+							idPiezaDental='48'
 						/>
 					</View>
 					
 					
 					
-					<View style={{height: '10%', width: '6%', position: 'absolute', bottom: -0.00583*SCREEN_HEIGHT, right: 0.42105*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 31, incisivo');
-							}}
+					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.02*SCREEN_HEIGHT, right: 0.42*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='incisivo'
+							idPiezaDental='31'
 						/>
 					</View>
-					<View style={{height: '10%', width: '6%', position: 'absolute', bottom: 0, right: 0.35789*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 32, incisivo');
-							}}
+					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.038*SCREEN_HEIGHT, right: 0.34*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='incisivo'
+							idPiezaDental='32'
 						/>
 					</View>
-					<View style={{height: '10%', width: '7%', position: 'absolute', bottom: 0.021*SCREEN_HEIGHT, right: 0.28421*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 33, canino');
-							}}
+					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.063*SCREEN_HEIGHT, right: 0.3*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='canino'
+							idPiezaDental='33'
 						/>
 					</View>
-					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.07*SCREEN_HEIGHT, right: 0.23789*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 34, premolar');
-							}}
+					<View style={{height: '10%', width: '10%', position: 'absolute', bottom: 0.098*SCREEN_HEIGHT, right: 0.237*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='premolar'
+							idPiezaDental='34'
 						/>
 					</View>
-					<View style={{height: '10%', width: '9%', position: 'absolute', bottom: 0.12016*SCREEN_HEIGHT, right: 0.20421*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 35, premolar');
-							}}
+					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.148*SCREEN_HEIGHT, right: 0.19*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='premolar'
+							idPiezaDental='35'
 						/>
 					</View>
-					<View style={{height: '10%', width: '12%', position: 'absolute', bottom: 0.18433*SCREEN_HEIGHT, right: 0.16210*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 36, molar');
-							}}
+					<View style={{height: '10%', width: '13%', position: 'absolute', bottom: 0.2*SCREEN_HEIGHT, right: 0.09*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='molar'
+							idPiezaDental='36'
 						/>
 					</View>
-					<View style={{height: '10%', width: '12%', position: 'absolute', bottom: 0.25666*SCREEN_HEIGHT, right: 0.13052*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 37, molar');
-							}}
+					<View style={{height: '10%', width: '13%', position: 'absolute', bottom: 0.275*SCREEN_HEIGHT, right: 0.05*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='molar'
+							idPiezaDental='37'
 						/>
 					</View>
-					<View style={{height: '10%', width: '10%', position: 'absolute', bottom: 0.33833*SCREEN_HEIGHT, right: 0.12*SCREEN_WIDTH}}>
-						<Button
-							onPress={() => {
-								Alert.alert('Pieza 38, molar');
-							}}
+					<View style={{height: '10%', width: '10%', position: 'absolute', bottom: 0.345*SCREEN_HEIGHT, right: 0.08*SCREEN_WIDTH}}>
+						<ModalDiente
 							title=" "
 							color="#00000000"
+							tipoPiezaDental='molar'
+							idPiezaDental='38'
 						/>
 					</View>
 					

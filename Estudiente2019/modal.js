@@ -35,6 +35,7 @@ export default class ModalDiente extends Component {
     let pic = {
               uri: './images/placeholder.png'
             };
+	let estaPieza = 'Pieza '+this.props.idPiezaDental;
     return (
       <View style={{marginTop: 22}}>
         <Modal
@@ -53,7 +54,7 @@ export default class ModalDiente extends Component {
                     <View style={{flex: 1, margin:5 ,marginTop:0, marginBottom:0, flexDirection: 'column', backgroundColor: '#f0f8ff'}}>
                         <View style={{justifyContent:'center', alignItems: 'center'}} >
                             <Text style={{fontWeight: 'bold', color:'midnightblue',  fontSize: 20}}>
-                                {this.diente}
+                                {this.diente} {estaPieza}
                             </Text>
                         </View>
                     </View>
