@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from server_estudiente.App.models import Administrador, AuthGroup, AuthGroupPermissions, AuthPermission, AuthUser, AuthUserGroups, AuthUserUserPermissions, Consulta, Dentadura, Denuncia, DetalleEnfermedad, Diente, DjangoAdminLog, DjangoContentType, DjangoMigrations, DjangoSession, Enfermedad, Estudiente, EstudienteDocument, EstudienteValidado, EstudienteVotacion, Ficha, HorarioDisponible, Mensaje, Notificacion, Paciente, PacienteEnfermedad, PacienteTratado, PacienteVotacion, SolicitaAtencion, TraspasoTratamiento, Tratamiento, TratamientoDiente, Universidad
+from server_estudiente.App.models import *
 
 
 class AdministradorSerializer(ModelSerializer):
