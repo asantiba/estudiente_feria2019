@@ -10,6 +10,7 @@ import React, {Component} from 'react';
 import {Dimensions, Platform, StyleSheet, Text, View, Image, ImageBackground, AppRegistry, Alert, Button, TouchableWithoutFeedback} from 'react-native';
 import ModalDiente from './modal';
 
+// Para que el modelo dental se ajuste relativo a la pantalla:
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
@@ -70,64 +71,48 @@ export default class ModeloDental extends Component {
 					
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.01*SCREEN_HEIGHT, left: 0.42*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='incisivo'
 							idPiezaDental='11'
 						/>
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.028*SCREEN_HEIGHT, left: 0.34*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='incisivo'
 							idPiezaDental='12'
 						/>
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.053*SCREEN_HEIGHT, left: 0.26*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='canino'
 							idPiezaDental='13'
 						/>
 					</View>
 					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.088*SCREEN_HEIGHT, left: 0.214*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='premolar'
 							idPiezaDental='14'
 						/>
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.138*SCREEN_HEIGHT, left: 0.17*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='premolar'
 							idPiezaDental='15'
 						/>
 					</View>
 					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.19*SCREEN_HEIGHT, left: 0.13*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='molar'
 							idPiezaDental='16'
 						/>
 					</View>
 					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.265*SCREEN_HEIGHT, left: 0.11*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='molar'
 							idPiezaDental='17'
 						/>
 					</View>
 					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.335*SCREEN_HEIGHT, left: 0.095*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='molar'
 							idPiezaDental='18'
 						/>
@@ -135,66 +120,52 @@ export default class ModeloDental extends Component {
 					
 					
 					
+					
+					
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.01*SCREEN_HEIGHT, right: 0.41*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='incisivo'
 							idPiezaDental='21'
 						/>
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.028*SCREEN_HEIGHT, right: 0.33*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='incisivo'
 							idPiezaDental='22'
 						/>
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.053*SCREEN_HEIGHT, right: 0.25*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='canino'
 							idPiezaDental='23'
 						/>
 					</View>
 					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.088*SCREEN_HEIGHT, right: 0.204*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='premolar'
 							idPiezaDental='24'
 						/>
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.138*SCREEN_HEIGHT, right: 0.16*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='premolar'
 							idPiezaDental='25'
 						/>
 					</View>
 					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.19*SCREEN_HEIGHT, right: 0.08*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='molar'
 							idPiezaDental='26'
 						/>
 					</View>
 					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.265*SCREEN_HEIGHT, right: 0.055*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='molar'
 							idPiezaDental='27'
 						/>
 					</View>
 					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.335*SCREEN_HEIGHT, right: 0.065*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='molar'
 							idPiezaDental='28'
 						/>
@@ -202,26 +173,22 @@ export default class ModeloDental extends Component {
 					
 					
 					
-					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.02*SCREEN_HEIGHT, left: 0.42*SCREEN_WIDTH}}>
+					
+					
+					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.025*SCREEN_HEIGHT, left: 0.42*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='incisivo'
 							idPiezaDental='41'
 						/>
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.038*SCREEN_HEIGHT, left: 0.34*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='incisivo'
 							idPiezaDental='42'
 						/>
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.063*SCREEN_HEIGHT, left: 0.3*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='canino'
 							idPiezaDental='43'
 						/>
@@ -236,32 +203,24 @@ export default class ModeloDental extends Component {
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.148*SCREEN_HEIGHT, left: 0.19*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='premolar'
 							idPiezaDental='45'
 						/>
 					</View>
 					<View style={{height: '10%', width: '13%', position: 'absolute', bottom: 0.2*SCREEN_HEIGHT, left: 0.14*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='molar'
 							idPiezaDental='46'
 						/>
 					</View>
 					<View style={{height: '10%', width: '13%', position: 'absolute', bottom: 0.275*SCREEN_HEIGHT, left: 0.11*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='molar'
 							idPiezaDental='47'
 						/>
 					</View>
 					<View style={{height: '10%', width: '10%', position: 'absolute', bottom: 0.345*SCREEN_HEIGHT, left: 0.095*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='molar'
 							idPiezaDental='48'
 						/>
@@ -269,66 +228,52 @@ export default class ModeloDental extends Component {
 					
 					
 					
-					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.02*SCREEN_HEIGHT, right: 0.42*SCREEN_WIDTH}}>
+					
+					
+					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.025*SCREEN_HEIGHT, right: 0.42*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='incisivo'
 							idPiezaDental='31'
 						/>
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.038*SCREEN_HEIGHT, right: 0.34*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='incisivo'
 							idPiezaDental='32'
 						/>
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.063*SCREEN_HEIGHT, right: 0.3*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='canino'
 							idPiezaDental='33'
 						/>
 					</View>
 					<View style={{height: '10%', width: '10%', position: 'absolute', bottom: 0.098*SCREEN_HEIGHT, right: 0.237*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='premolar'
 							idPiezaDental='34'
 						/>
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', bottom: 0.148*SCREEN_HEIGHT, right: 0.19*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='premolar'
 							idPiezaDental='35'
 						/>
 					</View>
 					<View style={{height: '10%', width: '13%', position: 'absolute', bottom: 0.2*SCREEN_HEIGHT, right: 0.09*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='molar'
 							idPiezaDental='36'
 						/>
 					</View>
 					<View style={{height: '10%', width: '13%', position: 'absolute', bottom: 0.275*SCREEN_HEIGHT, right: 0.05*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='molar'
 							idPiezaDental='37'
 						/>
 					</View>
 					<View style={{height: '10%', width: '10%', position: 'absolute', bottom: 0.345*SCREEN_HEIGHT, right: 0.08*SCREEN_WIDTH}}>
 						<ModalDiente
-							title=" "
-							color="#00000000"
 							tipoPiezaDental='molar'
 							idPiezaDental='38'
 						/>

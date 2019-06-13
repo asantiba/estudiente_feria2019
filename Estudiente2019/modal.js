@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
 import {AppRegistry, Image } from 'react-native';
-import {Modal, TouchableHighlight, Alert, TouchableOpacity, TouchableWithoutFeedback, Rectangle} from 'react-native';
+import {Modal, TouchableHighlight, Alert, TouchableOpacity, TouchableWithoutFeedback, Rectangle, Dimensions} from 'react-native';
+
+// Para que el modelo dental se ajuste relativo a la pantalla:
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 export default class ModalDiente extends Component {
 
   diente='';
-  piezadiente='';
   state = {
     modalVisible: false,
   };
@@ -96,7 +99,7 @@ export default class ModalDiente extends Component {
             this.setModalVisible(true);
             this.setDiente(this.props.tipoPiezaDental);
           }}
-          style={{width: 35, height: 40}}>
+          style={{width: 0.08*SCREEN_WIDTH, height: 0.05*SCREEN_HEIGHT}}>
 		  <View style={{flex: 1, backgroundColor: '#2196F388'}}/>
         </TouchableHighlight>
 
