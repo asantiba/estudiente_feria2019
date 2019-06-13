@@ -5,7 +5,7 @@ except ImportError:
   pass
 import django
 from django.contrib import admin
-from api import views
+from server_estudiente.App import views
 
 if django.VERSION[1] < 10:
   urlpatterns = patterns('',
