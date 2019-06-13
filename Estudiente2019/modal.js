@@ -1,12 +1,20 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
 import {AppRegistry, Image } from 'react-native';
-import {Modal, TouchableHighlight, Alert, TouchableOpacity} from 'react-native';
+import {Modal, TouchableHighlight, Alert, TouchableOpacity, TouchableWithoutFeedback, Rectangle, Dimensions} from 'react-native';
+import ModelView from 'react-native-gl-model-view';
+import { Animated, Easing } from 'react-native';
+
+
+ // Pal modelo 3d po choro!!!!
+
+// Para que el modelo dental se ajuste relativo a la pantalla:
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 export default class ModalDiente extends Component {
 
-  diente='';
-  piezadiente='';
+  diente=null;
   state = {
     modalVisible: false,
   };
@@ -18,15 +26,19 @@ export default class ModalDiente extends Component {
     switch (pieza){
         case 'molar':
             this.piezadiente= require('./images/molar.png');
+            //this.piezadiente= require('./obj/molar.obj');
             break;
         case 'premolar':
             this.piezadiente= require('./images/premolar.png');
+            //this.piezadiente= require('./obj/premolar.obj');
             break;
         case 'canino':
             this.piezadiente=require('./images/canino.png');
+            //this.piezadiente= require('./obj/canino.obj');
             break;
         case 'incisivo':
             this.piezadiente=require('./images/incisivo.png');
+            //this.piezadiente= require('./obj/incisivo.obj');
             break;
     };
   };
@@ -35,6 +47,7 @@ export default class ModalDiente extends Component {
     let pic = {
               uri: './images/placeholder.png'
             };
+	let estaPieza = 'Pieza '+this.props.idPiezaDental;
     return (
       <View style={{marginTop: 22}}>
         <Modal
@@ -49,11 +62,10 @@ export default class ModalDiente extends Component {
                 <View style={{flexDirection: 'row',  margin:10}}>
 
                     <Image source={this.piezadiente} style={{width: 200, height: 200}}/>
-
                     <View style={{flex: 1, margin:5 ,marginTop:0, marginBottom:0, flexDirection: 'column', backgroundColor: '#f0f8ff'}}>
                         <View style={{justifyContent:'center', alignItems: 'center'}} >
                             <Text style={{fontWeight: 'bold', color:'midnightblue',  fontSize: 20}}>
-                                {this.diente}
+                                {this.diente} {estaPieza}
                             </Text>
                         </View>
                     </View>
@@ -93,10 +105,10 @@ export default class ModalDiente extends Component {
         <TouchableHighlight
           onPress={() => {
             this.setModalVisible(true);
-            this.setDiente('incisivo');
+            this.setDiente(this.props.tipoPiezaDental);
           }}
-          style={{width: 193, height: 110,}}>
-              <Image source={require('./images/placeholder.png')} style={{width: 93, height: 55,}}/>
+          style={{width: 0.08*SCREEN_WIDTH, height: 0.05*SCREEN_HEIGHT}}>
+		  <View style={{flex: 1, backgroundColor: '#2196F388'}}/>
         </TouchableHighlight>
 
       </View>
