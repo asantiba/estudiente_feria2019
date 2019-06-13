@@ -4,8 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 import json
-from .serializers import DentaduraSerializer
-
+from .serializers import *
 # Import Models
 from .models import *
 
@@ -25,6 +24,15 @@ def get_dent_list(request):
     Returns Json list of all Dentadura
     """
     if request.method == "GET":
-        rest_list = Dentadura.objects.order_by('id')
+        rest_list = Dentadura.objects.order_by('iddentadura')
         serializer = DentaduraSerializer(rest_list, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+def get_dientes(request):
+    """
+    Returns Json list of all Dentadura
+    """
+    if request.method == "GET":
+        rest_list = Diente.objects.order_by('iddiente')
+        serializer = DienteSerializer(rest_list, many=True)
         return JsonResponse(serializer.data, safe=False)
