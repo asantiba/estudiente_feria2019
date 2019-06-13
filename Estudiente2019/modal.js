@@ -14,7 +14,7 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 export default class ModalDiente extends Component {
 
-  diente='';
+  diente=null;
   state = {
     modalVisible: false,
   };
@@ -61,19 +61,7 @@ export default class ModalDiente extends Component {
 
                 <View style={{flexDirection: 'row',  margin:10}}>
 
-                    //<Image source={this.piezadiente} style={{width: 200, height: 200}}/>
-                    <ModelView
-                              ref={modelView => { this.modelView = modelView }}
-                              style={styles.modelView}
-                              source={{
-                                model: require('../obj/diente.obj'),
-                                //texture: require('../obj/Hamburger.png')
-                              }}
-                              //onLoadModelStart={this.onLoadModelStart}
-                              //onLoadModelSuccess={this.onLoadModelSuccess}
-                              //onLoadModelError={this.onLoadModelError}
-                              />
-
+                    <Image source={this.piezadiente} style={{width: 200, height: 200}}/>
                     <View style={{flex: 1, margin:5 ,marginTop:0, marginBottom:0, flexDirection: 'column', backgroundColor: '#f0f8ff'}}>
                         <View style={{justifyContent:'center', alignItems: 'center'}} >
                             <Text style={{fontWeight: 'bold', color:'midnightblue',  fontSize: 20}}>
