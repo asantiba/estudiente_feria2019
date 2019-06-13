@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
 import {AppRegistry, Image } from 'react-native';
 import {Modal, TouchableHighlight, Alert, TouchableOpacity, TouchableWithoutFeedback, Rectangle, Dimensions} from 'react-native';
+import ModelView from 'react-native-gl-model-view';
+import { Animated, Easing } from 'react-native';
+
+
+ // Pal modelo 3d po choro!!!!
 
 // Para que el modelo dental se ajuste relativo a la pantalla:
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -21,15 +26,19 @@ export default class ModalDiente extends Component {
     switch (pieza){
         case 'molar':
             this.piezadiente= require('./images/molar.png');
+            //this.piezadiente= require('./obj/molar.obj');
             break;
         case 'premolar':
             this.piezadiente= require('./images/premolar.png');
+            //this.piezadiente= require('./obj/premolar.obj');
             break;
         case 'canino':
             this.piezadiente=require('./images/canino.png');
+            //this.piezadiente= require('./obj/canino.obj');
             break;
         case 'incisivo':
             this.piezadiente=require('./images/incisivo.png');
+            //this.piezadiente= require('./obj/incisivo.obj');
             break;
     };
   };
@@ -52,7 +61,18 @@ export default class ModalDiente extends Component {
 
                 <View style={{flexDirection: 'row',  margin:10}}>
 
-                    <Image source={this.piezadiente} style={{width: 200, height: 200}}/>
+                    //<Image source={this.piezadiente} style={{width: 200, height: 200}}/>
+                    <ModelView
+                              ref={modelView => { this.modelView = modelView }}
+                              style={styles.modelView}
+                              source={{
+                                model: require('../obj/diente.obj'),
+                                //texture: require('../obj/Hamburger.png')
+                              }}
+                              //onLoadModelStart={this.onLoadModelStart}
+                              //onLoadModelSuccess={this.onLoadModelSuccess}
+                              //onLoadModelError={this.onLoadModelError}
+                              />
 
                     <View style={{flex: 1, margin:5 ,marginTop:0, marginBottom:0, flexDirection: 'column', backgroundColor: '#f0f8ff'}}>
                         <View style={{justifyContent:'center', alignItems: 'center'}} >
