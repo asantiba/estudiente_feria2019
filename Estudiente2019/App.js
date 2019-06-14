@@ -15,9 +15,9 @@ class HomeScreen extends React.Component {
       nombre: '',
     }
   }componentDidMount() {
-    axios.get('http://192.168.43.212:8000/get_dientes')
+    axios.get('http://192.168.43.212:8000/get_dientes') //tiene que ser TU ip
     .then(response => {
-      alert(response.data[1].nombre);
+      alert(response.data[1].nombre); //aqui imprime el js obtenico
     })
     .catch(error => {
       console.log(error);
@@ -28,7 +28,7 @@ class HomeScreen extends React.Component {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Image source={require('./images/Logo.jpg')} style={{height: '55%', width: '100%'}}/>
         <Button
-          title= '{`${Object.values(data)}`}'
+          title= 'Ver Modelo'
           onPress={() => this.props.navigation.navigate('Modelo')}
         />
         <Button
