@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
 import {AppRegistry, Image } from 'react-native';
 import {Modal, TouchableHighlight, Alert, TouchableOpacity, TouchableWithoutFeedback, Rectangle, Dimensions} from 'react-native';
-import ModelView from 'react-native-gl-model-view';
+//import ModelView from 'react-native-gl-model-view';
 import { Animated, Easing } from 'react-native';
 
 
