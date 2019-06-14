@@ -22,12 +22,60 @@ export default class ModeloDental extends Component {
 		  data: [],
 		  error: null,
 		  refreshing: false,
-		  base_url: "http://127.0.0.1:8000/"
+		  base_url: "http://127.0.0.1:8000/",
+		  
+		  /* Se usara para hacer pruebas. Al final este JSON 
+		  se debe obtener de la BD */
+		  // -----------------------------------------------
+		  testJson: {
+			  "dientes": {
+				"11" : {
+					"tieneCaries": true,
+					"tieneTapadura": false,
+					"descripcion": "Carie mesial"
+				},
+				"12" : {
+					"tieneCaries": true,
+					"tieneTapadura": false,
+					"descripcion": "Carie en palatino"
+				},
+				"13" : {
+					"tieneCaries": false,
+					"tieneTapadura": true,
+					"descripcion": "Tapadura de oro"
+				},
+				"14" : {
+					"tieneCaries": false,
+					"tieneTapadura": false,
+					"descripcion": "Pieza dental sana"
+				},
+				"15" : {
+					"tieneCaries": false,
+					"tieneTapadura": false,
+					"descripcion": "Pieza dental sana"
+				},
+				"16" : {
+					"tieneCaries": false,
+					"tieneTapadura": false,
+					"descripcion": "Pieza dental sana"
+				},
+				"17" : {
+					"tieneCaries": false,
+					"tieneTapadura": false,
+					"descripcion": "Pieza dental sana"
+				},
+				"18" : {
+					"tieneCaries": false,
+					"tieneTapadura": false,
+					"descripcion": "Pieza dental sana"
+				}
+			  }
+		  }
+		  // -------------------------------------------------
 	
 	  }}
 	  componentDidMount() {
 		this.fetchDataFromApi();
-	
 	  }
 	  fetchDataFromApi = ()  => {
 		const url = "http://127.0.0.1:8000/get_dent_list";
@@ -60,6 +108,7 @@ export default class ModeloDental extends Component {
 		  }
 		);
 	  };
+	  
 	render() {
 		return (
 			<View style={{
@@ -73,55 +122,69 @@ export default class ModeloDental extends Component {
 						<ModalDiente
 							tipoPiezaDental='incisivo'
 							idPiezaDental='11'
+							miJSON={this.state.testJson.dientes[11]}
 						/>
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.028*SCREEN_HEIGHT, left: 0.34*SCREEN_WIDTH}}>
 						<ModalDiente
 							tipoPiezaDental='incisivo'
 							idPiezaDental='12'
+							miJSON={this.state.testJson.dientes[12]}
 						/>
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.053*SCREEN_HEIGHT, left: 0.26*SCREEN_WIDTH}}>
 						<ModalDiente
 							tipoPiezaDental='canino'
 							idPiezaDental='13'
+							miJSON={this.state.testJson.dientes[13]}
 						/>
 					</View>
 					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.088*SCREEN_HEIGHT, left: 0.214*SCREEN_WIDTH}}>
 						<ModalDiente
 							tipoPiezaDental='premolar'
 							idPiezaDental='14'
+							miJSON={this.state.testJson.dientes[14]}
 						/>
 					</View>
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.138*SCREEN_HEIGHT, left: 0.17*SCREEN_WIDTH}}>
 						<ModalDiente
 							tipoPiezaDental='premolar'
 							idPiezaDental='15'
+							miJSON={this.state.testJson.dientes[15]}
 						/>
 					</View>
 					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.19*SCREEN_HEIGHT, left: 0.13*SCREEN_WIDTH}}>
 						<ModalDiente
 							tipoPiezaDental='molar'
 							idPiezaDental='16'
+							miJSON={this.state.testJson.dientes[16]}
 						/>
 					</View>
 					<View style={{height: '10%', width: '13%', position: 'absolute', top: 0.265*SCREEN_HEIGHT, left: 0.11*SCREEN_WIDTH}}>
 						<ModalDiente
 							tipoPiezaDental='molar'
 							idPiezaDental='17'
+							miJSON={this.state.testJson.dientes[17]}
 						/>
 					</View>
 					<View style={{height: '10%', width: '10%', position: 'absolute', top: 0.335*SCREEN_HEIGHT, left: 0.095*SCREEN_WIDTH}}>
 						<ModalDiente
 							tipoPiezaDental='molar'
 							idPiezaDental='18'
+							miJSON={this.state.testJson.dientes[18]}
 						/>
 					</View>
 					
-					
-					
-					
-					
+				</ImageBackground>
+			
+			</View>
+		);
+	}
+}
+
+/*
+
+
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.01*SCREEN_HEIGHT, right: 0.41*SCREEN_WIDTH}}>
 						<ModalDiente
 							tipoPiezaDental='incisivo'
@@ -278,13 +341,8 @@ export default class ModeloDental extends Component {
 							idPiezaDental='38'
 						/>
 					</View>
-					
-				</ImageBackground>
-			
-			</View>
-		);
-	}
-}
+
+*/
 
 AppRegistry.registerComponent('TestProject', () => ModeloDental);
 

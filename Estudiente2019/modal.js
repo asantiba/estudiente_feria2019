@@ -13,6 +13,35 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 export default class ModalDiente extends Component {
+	
+	componentDidMount() {
+		this.cargarDatosJSON();
+	}
+	
+	/* Carga informacion proveniente del JSON
+	-------------------------------------------- */
+	cargarDatosJSON() {
+		if (this.props.miJSON.tieneCaries) {
+			this.setState({
+				caries: "Si"
+			});
+		} else {
+			this.setState({
+				caries: "No"
+			});
+		}
+		
+		if (this.props.miJSON.tieneTapadura) {
+			this.setState({
+				tapadura: "Si"
+			});
+		} else {
+			this.setState({
+				tapadura: "No"
+			});
+		}
+	};
+	//--------------------------------------------
 
   diente=null;
   state = {
@@ -65,7 +94,10 @@ export default class ModalDiente extends Component {
                     <View style={{flex: 1, margin:5 ,marginTop:0, marginBottom:0, flexDirection: 'column', backgroundColor: '#f0f8ff'}}>
                         <View style={{justifyContent:'center', alignItems: 'center'}} >
                             <Text style={{fontWeight: 'bold', color:'midnightblue',  fontSize: 20}}>
-                                {this.diente} {estaPieza}
+                                {this.diente} {"\n"}
+								{estaPieza} {"\n"}
+								Tiene caries: {this.state.caries} {"\n"}
+								Tiene tapaduras: {this.state.tapadura} {"\n"}
                             </Text>
                         </View>
                     </View>
@@ -73,14 +105,12 @@ export default class ModalDiente extends Component {
 
 
                 <View style={{flex: 1, marginTop: 10, margin:10,}}>
-                    <Text style={{fontWeight: 'bold', color:'midnightblue',  fontSize: 20}}>
-                        Informacion: Tiene caries en palatino
-                    </Text>
                     <View style={{flex: 1, backgroundColor: '#f0f8ff', marginTop: 5}}>
                         <View style={{margin: 10 , marginBottom:3}}>
                             <ScrollView >
-                                <View style={{height: 500, backgroundColor: 'orange'}} />
-                                <View style={{height: 500, backgroundColor: '#f0f8ff'}} />
+                                <Text style={{fontWeight: 'bold', color:'midnightblue',  fontSize: 20}}>
+									Informacion: {this.props.miJSON.descripcion}
+								</Text>
                             </ScrollView>
                         </View>
                     </View>
