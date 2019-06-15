@@ -130,52 +130,52 @@ export default class ModalDiente extends Component {
         case '28':
             this.imgPieza= require('./images/DientesImg/u8.png');
             break;
-        case '31':
+        case '41':
             this.imgPieza= require('./images/DientesImg/iD1.png');
             break;
-        case '32':
+        case '42':
             this.imgPieza= require('./images/DientesImg/iD2.png');
             break;
-        case '33':
+        case '43':
             this.imgPieza= require('./images/DientesImg/iD3.png');
             break;
-        case '34':
+        case '44':
             this.imgPieza= require('./images/DientesImg/iD4.png');
             break;
-        case '35':
+        case '45':
             this.imgPieza= require('./images/DientesImg/iD5.png');
             break;
-        case '36':
+        case '46':
             this.imgPieza= require('./images/DientesImg/iD6.png');
             break;
-        case '37':
+        case '47':
             this.imgPieza= require('./images/DientesImg/iD7.png');
             break;
-        case '38':
+        case '48':
             this.imgPieza= require('./images/DientesImg/iD8.png');
             break;
-        case '41':
+        case '31':
             this.imgPieza= require('./images/DientesImg/D1.png');
             break;
-        case '42':
+        case '32':
             this.imgPieza= require('./images/DientesImg/D2.png');
             break;
-        case '43':
+        case '33':
             this.imgPieza= require('./images/DientesImg/D3.png');
             break;
-        case '44':
+        case '34':
             this.imgPieza= require('./images/DientesImg/D4.png');
             break;
-        case '45':
+        case '35':
             this.imgPieza= require('./images/DientesImg/D5.png');
             break;
-        case '46':
+        case '36':
             this.imgPieza= require('./images/DientesImg/D6.png');
             break;
-        case '47':
+        case '37':
             this.imgPieza= require('./images/DientesImg/D7.png');
             break;
-        case '48':
+        case '38':
             this.imgPieza= require('./images/DientesImg/D8.png');
             break;
       };
