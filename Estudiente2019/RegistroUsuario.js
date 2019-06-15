@@ -90,6 +90,7 @@ export default class RegistroUsuario extends Component {
       'http://10.112.12.155:8000/post_paciente/', 
       {value}
   );
+  alert('Registrado');
   }
 
   render() {
