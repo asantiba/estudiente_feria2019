@@ -139,7 +139,8 @@ class DetalleEnfermedad(models.Model):
 
 class Diente(models.Model):
     iddiente = models.IntegerField(primary_key=True)
-    nombre = models.CharField(max_length=45, blank=True, null=True)
+    posicion = models.CharField(max_length=45, blank=True, null=True)
+    tipo = models.CharField(max_length=45, blank=True, null=True)
 
     class Meta:
         managed = False
