@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { View, StyleSheet, Button, ScrollView } from 'react-native';
-
+import axios from 'axios';
 import t from 'tcomb-form-native';
 //Documentacion para este modulo en : https://github.com/gcanti/tcomb-form-native
 
@@ -86,6 +86,10 @@ export default class RegistroUsuario extends Component {
   handleSubmit = () => {
     const value = this._form.getValue();
     console.log('value: ', value);
+    axios.post(
+      'http://10.112.12.155:8000/post_paciente/', 
+      {value}
+  );
   }
 
   render() {

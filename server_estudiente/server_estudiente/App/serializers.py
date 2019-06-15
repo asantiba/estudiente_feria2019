@@ -180,7 +180,8 @@ class PacienteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Paciente
-        fields = '__all__'
+        fields = ('idpaciente','nombre','apellido_pat','apellido_mat','correo','password','direccion','edad','estado_civil','sexo','celular','telefono','ocupacion','f_nac','f_gen')
+
 
 
 class PacienteEnfermedadSerializer(serializers.ModelSerializer):

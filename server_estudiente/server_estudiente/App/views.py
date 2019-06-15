@@ -7,6 +7,8 @@ import json
 from .serializers import *
 # Import Models
 from .models import *
+import datetime
+from rest_framework import status
 
 # Views
 def index(request):
@@ -91,6 +93,30 @@ def get_ficha_by_paciente(request):
         print(rest_list)
         serializer = DentaduraSerializer(rest_list, many=True)
         return JsonResponse(serializer.data, safe=False)
+
+def post_paciente(request):
+        datos = json.loads(request.body.decode('utf-8'))['value']
+        data = dict()
+        data['idpaciente']=datos['rut']
+        data['nombre']=datos['nombre']
+        data['apellido_pat']=datos['apellido_paterno']
+        data['apellido_mat']=datos['apellido_materno']
+        data['correo']=datos['correo']
+        data['password'] = 'clave'
+        data['direccion'] = datos['direccion']
+        data['edad'] = '20'
+        data['estado_civil'] =datos['estado_civil'] 
+        data['sexo'] = datos['sexo']
+        data['celular'] = datos['celular']
+        data['telefono'] = datos['celular']
+        data['ocupacion'] = datos['ocupacion']
+        data['f_nac'] = datos['fecha_de_nacimiento']
+        data['f_gen'] =datetime.datetime.now()
+        serializer = PacienteSerializer(data = data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 
