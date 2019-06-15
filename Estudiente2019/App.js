@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, View, Text } from 'react-native';
+import { Button, Image, View, Text, Switch } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 //De aqui en adelante, agregar las views
@@ -7,6 +7,7 @@ import ModeloDental from './ModeloDent';
 import ModalDiente from './modal';
 import RegistroUsuario from './RegistroUsuario';
 import FichaPaciente from './FichaPaciente';
+import FichaBloqueada from './FichaBloqueada';
 import axios from 'axios';
 
 
@@ -17,6 +18,7 @@ class HomeScreen extends React.Component {
     super(props);
     this.state = {
       nombre: '',
+	  permisoDado: false
     }
   }componentDidMount() {
     axios.get('http://192.168.43.212:8000/get_dientes') //tiene que ser TU ip
@@ -27,6 +29,13 @@ class HomeScreen extends React.Component {
       console.log(error);
     });
   }
+  
+  // Para manejar el switch que entrega permiso:
+  state = {permisoDado:false}
+  toggleSwitch = (value) => {
+      this.setState({permisoDado: value})
+   }
+  
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -41,8 +50,27 @@ class HomeScreen extends React.Component {
         />
         <Button
           title="Ver Ficha"
-          onPress={() => this.props.navigation.navigate('Ficha')}
+          onPress={() => {
+			if (this.state.permisoDado) {
+			  this.props.navigation.navigate('Ficha')
+			} else {
+			  this.props.navigation.navigate('Bloqueada')
+			}
+		  }
+		}
         />
+		
+		<View>
+		<Text>
+			{"\n"} {"\n"} {"\n"}
+			Permitir ver Ficha
+		</Text>
+		<Switch 
+		  onValueChange = {this.toggleSwitch}
+          value = {this.state.permisoDado}
+		/>
+		</View>
+		
       </View>
     );
   }
@@ -58,6 +86,7 @@ const RootStack = createStackNavigator(
     Modelo: ModeloDental,
     Registro: RegistroUsuario,
     Ficha: FichaPaciente,
+	Bloqueada: FichaBloqueada
   },
   {
     initialRouteName: 'Home',
