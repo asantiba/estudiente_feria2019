@@ -247,8 +247,8 @@ export default class ModalDiente extends Component {
             this.setModalVisible(true);
             this.setDiente(this.props.tipoPiezaDental);
           }}
-          style={{width: 0.08*SCREEN_WIDTH, height: 0.08*SCREEN_HEIGHT}}>
-		  <View style={{flex: 1, backgroundColor: '#2196F322'}}>
+          style={{width: 0.08*SCREEN_WIDTH, height: 0.05*SCREEN_HEIGHT}}>
+		  <View style={{flex: 1, backgroundColor: '#2196F300'}}>
 		         <Image source={this.imgPieza} style={{width: 0.08*SCREEN_WIDTH, height: 0.05*SCREEN_HEIGHT}}/>
 		  </View>
         </TouchableHighlight>
