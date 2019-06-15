@@ -22,5 +22,21 @@ urlpatterns = [
     url(r'^index/', views.index, name='index'),
     url(r'^estudientes/', views.estudientes, name='estudientes'),
     url(r'^get_dent_list/', views.get_dent_list, name='get_dent_list'),
+
+    # Url Diente
+    url(r'^get_dientes/', views.get_dientes, name='get_dientes'),
+    url(r'^get_diente/(?P<iddiente>\d+)/$', views.get_diente, name='get_diente'),
+
+    # Url Dentadura
+    url(r'^get_dentadura_by_paciente/', views.get_dentadura_by_paciente, name='get_dentadura_by_paciente'),
+    url(r'^get_dentadura/(?P<iddentadura>\d+)/$', views.get_dentadura, name='get_dentadura'),
+
+    # Url Paciente
+    url(r'^get_paciente/', views.get_paciente, name='get_paciente'),
+
+    # Url Ficha
+    url(r'^get_ficha_by_paciente/', views.get_ficha_by_paciente, name='get_ficha_by_paciente'),
+
+    # Url Admin
     url(r'^admin/', admin.site.urls),
 ]
