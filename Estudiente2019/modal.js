@@ -219,7 +219,7 @@ export default class ModalDiente extends Component {
                         <View style={{margin: 10 , marginBottom:3}}>
                             <ScrollView >
                                 <Text style={{fontWeight: 'bold', color:'midnightblue',  fontSize: 20}}>
-									Informacion: {this.props.miJSON.descripcion}
+									Informacion: {this.props.miJSON["comentario_detallado"]}
 								</Text>
                             </ScrollView>
                         </View>
