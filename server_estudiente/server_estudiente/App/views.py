@@ -147,10 +147,13 @@ def post_paciente(request):
 #   int: 'idpaciente'
 def get_ficha_by_paciente(request):
     if request.method == "GET":
-        rest_list = Dentadura.objects.raw('SELECT dentadura.*, diente.* FROM paciente LEFT JOIN dentadura ON dentadura.idpaciente=paciente.idpaciente LEFT JOIN diente ON dentadura.iddiente=diente.iddiente WHERE paciente.idpaciente=' + str(1))
-        print(rest_list)
+        rest_list = Dentadura.objects.raw('SELECT dentadura.*, diente.* FROM paciente LEFT JOIN dentadura ON dentadura.idpaciente=paciente.idpaciente LEFT JOIN diente ON dentadura.iddiente=diente.iddiente WHERE paciente.idpaciente=' + str(9966))
         serializer = DentaduraSerializer(rest_list, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        lista_datos = serializer.data
+        l_d = [dict(i) for i in lista_datos] # se transforma en una lista para poder iterar en ella
+        d_d = [(i['iddiente'],i) for i in l_d] # se genera una lista de tuplas
+        d = {k:v for k, v in d_d} # las tublas se vuelven un diccionario
+        return JsonResponse(d, safe=False)
 
 
 
