@@ -99,21 +99,21 @@ export default class FichaTratamiento extends Component{
 
                 <View style={{flex:1, flexDirection: 'row'}}>
                     <ScrollView>
-                        <FlatList>
+                        <FlatList
                             /* aqui se llama al JSON Dentadura, lo que
                             no se es si se puede modificar el texto dentro del json,
                             si es asi, entonces todo lo de adentro funciona bien.*/
 
                             data={this.props.Dentadura}
                             renderItem={({diente}) =>
-                                <ResumenDiente {item.key}
+                                <ResumenDiente
                                     idDiente={diete.idDiente}
                                     tipoDiente={diete.tipoDiente}
                                     estadoDiente={diete.estadoDiente}
                                     comentarioDiente={diete.comentarioDiente}
                                 />
                             }
-                        </FlatList>
+                        />
                     </ScrollView>
                 </View>
 
