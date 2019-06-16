@@ -9,6 +9,7 @@
 import React, {Component} from 'react';
 import {Dimensions, Platform, StyleSheet, Text, View, Image, ImageBackground, AppRegistry, Alert, Button, TouchableWithoutFeedback} from 'react-native';
 import ModalDiente from './modal';
+import axios from 'axios';
 
 // Para que el modelo dental se ajuste relativo a la pantalla:
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -20,6 +21,7 @@ export default class ModeloDental extends Component {
 		this.state  = {
 		  loading: false,
 		  data: [],
+		  dicto: {},
 		  error: null,
 		  refreshing: false,
 		  base_url: "http://127.0.0.1:8000/",
@@ -194,8 +196,20 @@ export default class ModeloDental extends Component {
 		  // -------------------------------------------------
 	
 	  }}
+	  
 	  componentDidMount() {
-		this.fetchDataFromApi();
+		const self = this;
+		axios.get('http://192.168.43.212:8000/get_ficha_by_paciente/')
+		.then((response) => {
+		  this.setState({dictos:response.data});
+		  this.setState({loading:true})
+		  alert('Modelo Cargado')
+		 // alert(response.data["11"].estado) // response.data[id del diente].[llave a la que se quiere entrar]
+		  ;
+		})
+		.catch(error => {
+		  console.log(error);
+		});
 	  }
 	  fetchDataFromApi = ()  => {
 		const url = "http://127.0.0.1:8000/get_dent_list";
@@ -229,7 +243,10 @@ export default class ModeloDental extends Component {
 		);
 	  };
 	  
+	  
 	render() {
+		var cosa = {"11":"","21":""};
+		var cosa = this.state.dictos; // Soy pesimo para bautizar variables y son las 4.am pero cosa[id del diente] y obtienen el json correspondiente
 		return (
 			<View style={{
 				flex: 1,
@@ -237,14 +254,14 @@ export default class ModeloDental extends Component {
 				justifyContent: 'center'
 			}}>
 				<View style={{height: '100%', width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: '#2196F388'}}>
-					
+					{this.state.loading ?(
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.01*SCREEN_HEIGHT, left: 0.42*SCREEN_WIDTH}}>
 						<ModalDiente
 							tipoPiezaDental='incisivo'
 							idPiezaDental='11'
-							miJSON={this.state.testJson.dientes[11]}
+							miJSON={cosa["11"]}
 						/>
-					</View>
+					</View>):(<View></View>)}
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.028*SCREEN_HEIGHT, left: 0.34*SCREEN_WIDTH}}>
 						<ModalDiente
 							tipoPiezaDental='incisivo'
@@ -297,14 +314,14 @@ export default class ModeloDental extends Component {
 					
 					
 					
-					
+					{this.state.loading ?(
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.01*SCREEN_HEIGHT, right: 0.41*SCREEN_WIDTH}}>
 						<ModalDiente
 							tipoPiezaDental='incisivo'
 							idPiezaDental='21'
-							miJSON={this.state.testJson.dientes[21]}
+							miJSON={cosa["21"]}
 						/>
-					</View>
+					</View>):(<View></View>)}
 					<View style={{height: '10%', width: '8%', position: 'absolute', top: 0.028*SCREEN_HEIGHT, right: 0.33*SCREEN_WIDTH}}>
 						<ModalDiente
 							tipoPiezaDental='incisivo'

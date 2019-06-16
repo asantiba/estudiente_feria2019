@@ -23,7 +23,7 @@ class HomeScreen extends React.Component {
   }componentDidMount() {
     axios.get('http://192.168.43.212:8000/get_dientes') //tiene que ser TU ip
     .then(response => {
-      alert(response.data[1].nombre); //aqui imprime el js obtenico
+      //alert(response.data[1].nombre); //aqui imprime el js obtenico
     })
     .catch(error => {
       console.log(error);
