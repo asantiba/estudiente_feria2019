@@ -21,7 +21,7 @@ class HomeScreen extends React.Component {
 	  permisoDado: false
     }
   }componentDidMount() {
-    axios.get('http://192.168.43.212:8000/get_dientes') //tiene que ser TU ip
+    axios.get('http://190.45.49.72:8000/get_dientes') //tiene que ser TU ip
     .then(response => {
       //alert(response.data[1].nombre); //aqui imprime el js obtenico
     })
@@ -86,7 +86,7 @@ const RootStack = createStackNavigator(
     Modelo: ModeloDental,
     Registro: RegistroUsuario,
     Ficha: FichaPaciente,
-	Bloqueada: FichaBloqueada
+	  Bloqueada: FichaBloqueada
   },
   {
     initialRouteName: 'Home',

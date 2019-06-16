@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Dimensions, ScrollView, Platform, StyleSheet, Text, View, AppRegistry, FlatList} from 'react-native';
 import FormDiente from './Formulario';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -10,7 +12,7 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
     Necesito que me entreguen:
         - el Json Dentadura (del paciente) (que tiene la info de cada diente del paciente)
             (se llama como data en el flatlist)
-        - los valores del tratamiento como props
+        - LISTO : los valores del tratamiento como props
             (que se llaman en la clase FichaTratamiento)
 
 */
@@ -62,6 +64,7 @@ class ResumenDiente extends Component{
 
 export default class FichaTratamiento extends Component{
     render(){
+        const { navigation } = this.props; //Esto es lo que recibe de hacer click en el boton "Revisar ultima ficha"
         return(
 
             <View style= {{flex: 1}}>
@@ -73,25 +76,25 @@ export default class FichaTratamiento extends Component{
                         </Text>
                     </View>
 
-                    <View style={{justifyContent:'center', flexDirection: 'column', margin: 10,backgroundColor:'midnightblue'}}>
+                    <View style={{justifyContent:'center', flexDirection: 'column', margin: 10,backgroundColor:'cyan'}}>
                         <View>
-                            <Text> Usuario: {this.props.Paciente}</Text>
+                            <Text> Usuario: {navigation.getParam('paciente')}</Text>
                         </View>
 
                         <View>
-                            <Text> Tipo de Tratamiento: {this.props.tipoTratamiento} </Text>
+                            <Text> Tipo de Tratamiento: {navigation.getParam('tipoTratamiento')} </Text>
                         </View>
 
                         <View>
-                            <Text> Vigencia: {this.props.estadoTratamiento}</Text>
+                            <Text> Vigencia: {navigation.getParam('estadoTratamiento')}</Text>
                         </View>
 
                         <View>
-                            <Text> Fecha de inicio: {this.props.inicioTratamiento}</Text>
+                            <Text> Fecha de inicio: {navigation.getParam('inicioTratamiento')}</Text>
                         </View>
 
                         <View>
-                            <Text> Descripcion: {this.props.descripcionTratamiento}</Text>
+                            <Text> Descripcion: {navigation.getParam('descripcionTratamiento')}</Text>
                         </View>
                     </View>
 
@@ -107,10 +110,10 @@ export default class FichaTratamiento extends Component{
                             data={this.props.Dentadura}
                             renderItem={({diente}) =>
                                 <ResumenDiente
-                                    idDiente={diete.idDiente}
-                                    tipoDiente={diete.tipoDiente}
-                                    estadoDiente={diete.estadoDiente}
-                                    comentarioDiente={diete.comentarioDiente}
+                                    idDiente={diente.idDiente}
+                                    tipoDiente={diente.tipoDiente}
+                                    estadoDiente={diente.estadoDiente}
+                                    comentarioDiente={diente.comentarioDiente}
                                 />
                             }
                         />

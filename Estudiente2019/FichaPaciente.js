@@ -1,20 +1,27 @@
 import React, {Component} from 'react';
-import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
+import {Button, FlatList, Image, StyleSheet, Text, View} from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
+import FichaTratamiento from './Tratamiento';
+
+//Cambiar este User defecto por el JSON respectivo que le corresponde
 const User = {
-  nombre: 'Luis',
-  apellido_paterno: 'Hevia',
+  nombre: 'Juanito',
+  apellido_paterno: 'Alcachofa',
   apellido_materno: null,
+  paciente: 'Juanito Alcachofa',
   rut: '12345678-9',
   sexo: 'Masculino',
   fecha_de_nacimiento: '29/02/2001',
   diagnosticado: true,
-  dientes_caries: ['1,1','1,2'],
-  dientes_ausentes: ['1,8','2,8','3,8','4,8'],
+  tipoTratamiento: 'Tipo de tratamiento 1',
+  estadoTratamiento: 'Estado de tratamiento 2',
+  inicioTratamiento: 'Inicio de tratamiento 3',
+  descripcionTratamiento: 'Descripcion de tratamiento 4',
   validado: true
 };
 
-export default class FichaPaciente extends Component {
+class FichaPaciente extends Component {
 	render() {
 		return(
           	<View style={{flex: 1}}>
@@ -23,24 +30,21 @@ export default class FichaPaciente extends Component {
 						<Image source= {require('./images/pacienteficha.png')} style={{width: 80, height: 80}} />
 					</View>
 					<View style={{flex: 4,  alignItems: 'flex-end'}}>
-						<Text style={{fontSize:24}}> {User.nombre} {User.apellido_paterno} {User.apellido_materno} </Text>
+						<Text style={{fontSize:24}}> {User.paciente} </Text>
 						<Text style={{fontSize:18}}> Rut: {User.rut} </Text>
 						<Text style={{fontSize:18}}> Edad: 18 </Text>
 					</View>
 				</View>
 				<View style={{flex: 10, backgroundColor: 'turquoise', flexDirection: 'row'}}>
 					<View style={{flex: 1, backgroundColor: 'cyan'}}>
-						<Text> Dientes con caries : </Text>
-						<FlatList data={User.dientes_caries} renderItem={({item}) => <Text style={styles.item}>{item}</Text>}/>
+						<Button
+				          title="Revisar último tratamiento"
+				          onPress={() => this.props.navigation.navigate('UltimoTratamiento', User)}
+				        />
+				        <Button
+				          title="Revisar tratamientos anteriores"
+				        />
 					</View>
-					<View style={{flex: 1, backgroundColor: 'darkcyan'}}>
-						<Text> Dientes ausentes : </Text>
-						<FlatList data={User.dientes_ausentes} renderItem={({item}) => <Text style={styles.item}>{item}</Text>}/>
-					</View>
-				</View>
-				<View style={{flex: 2, backgroundColor: 'green'}}>
-						<Text> Próximo tratamiento : </Text>
-						<Text> 15 de junio de 2019</Text>
 				</View>
 			</View>
 		);
@@ -54,3 +58,22 @@ const styles = StyleSheet.create({
     height: 44,
   },
 })
+
+//Navegador a tratamientos
+const RootStack = createStackNavigator(
+  {
+    Home: FichaPaciente,
+    UltimoTratamiento: FichaTratamiento,
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
+
+const AppContainer = createAppContainer(RootStack);
+
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
+}

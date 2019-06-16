@@ -11,3 +11,4 @@ server_estudiente/server_estudiente/settings.pyc
 server_estudiente/server_estudiente/urls.pyc
 server_estudiente/server_estudiente/App/models.pyc
 *.pyc
+*.pyc

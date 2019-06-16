@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {FlatList, Image, StyleSheet, Text, View, Button} from 'react-native';
 
 const User = {
-  nombre: 'Place',
+  nombre: 'Acceso',
   rut: 'XX.XXX.XXX-X',
-  apellido_paterno: 'Holder',
+  apellido_paterno: 'Denegado',
   apellido_materno: null,
-  sexo: 'Masculino'
+  edad: 'N/A'
 };
 
 export default class FichaPaciente extends Component {
@@ -20,7 +20,7 @@ export default class FichaPaciente extends Component {
 					<View style={{flex: 4,  alignItems: 'flex-end'}}>
 						<Text style={{fontSize:24}}> {User.nombre} {User.apellido_paterno} {User.apellido_materno} </Text>
 						<Text style={{fontSize:18}}> Rut: {User.rut} </Text>
-						<Text style={{fontSize:18}}> Edad: 18 </Text>
+						<Text style={{fontSize:18}}> Edad: {User.edad} </Text>
 					</View>
 				</View>
 				<View style={{flex: 10, backgroundColor: 'turquoise', flexDirection: 'row', alignItems: 'center', justifyContent:'center'}}>
