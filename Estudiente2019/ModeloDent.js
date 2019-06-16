@@ -246,7 +246,7 @@ export default class ModeloDental extends Component {
 	  
 	render() {
 		var cosa = {"11":"","21":""};
-		var cosa = this.state.dictos;
+		var cosa = this.state.dictos; // Soy pesimo para bautizar variables y son las 4.am pero cosa[id del diente] y obtienen el json correspondiente
 		return (
 			<View style={{
 				flex: 1,
