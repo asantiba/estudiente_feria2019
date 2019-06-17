@@ -21,9 +21,9 @@ class HomeScreen extends React.Component {
 	  permisoDado: false
     }
   }componentDidMount() {
-    axios.get('http://190.45.49.72:8000/get_dientes') //tiene que ser TU ip
+    axios.get('http://192.168.0.12:8000/get_dientes') //tiene que ser TU ip
     .then(response => {
-      //alert(response.data[1].nombre); //aqui imprime el js obtenico
+      //alert(response.data[1].posicion); //aqui imprime el js obtenico
     })
     .catch(error => {
       console.log(error);

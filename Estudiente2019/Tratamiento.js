@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Dimensions, ScrollView, Platform, StyleSheet, Text, View, AppRegistry, FlatList} from 'react-native';
 import FormDiente from './Formulario';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
+import axios from 'axios';
 
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -12,8 +13,6 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
     Necesito que me entreguen:
         - el Json Dentadura (del paciente) (que tiene la info de cada diente del paciente)
             (se llama como data en el flatlist)
-        - LISTO : los valores del tratamiento como props
-            (que se llaman en la clase FichaTratamiento)
 
 */
 
@@ -63,10 +62,42 @@ class ResumenDiente extends Component{
 }
 
 export default class FichaTratamiento extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            loading1: false,
+            loading2: false,
+            data: [],
+            dicto: {},
+            dic: {},
+            error: null,
+            refreshing: false,
+        }
+    }
+    componentDidMount() {
+        const self = this;
+        axios.get('http://192.168.0.12:8000/get_tratamiento_by_paciente/189589145') //tiene que ser TU ip
+        .then((response) => {
+          this.setState({dictos:response.data});
+          this.setState({loading1:true})
+        })
+        .catch(error => {
+          console.log(error);
+        });
+        axios.get('http://192.168.0.12:8000/get_dentadura_by_paciente/189589145') //tiene que ser TU ip
+        .then((response) => {
+          this.setState({dics:response.data});
+          this.setState({loading2:true});
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
     render(){
-        const { navigation } = this.props; //Esto es lo que recibe de hacer click en el boton "Revisar ultima ficha"
+        //const { navigation } = this.props; //Esto es lo que recibe de hacer click en el boton "Revisar ultima ficha"
+        var tratamientoUsuario = this.state.dictos;
+        var Dentadura = this.state.dics;
         return(
-
             <View style= {{flex: 1}}>
                 <View style={{flexDirection: 'column'}}>
 
@@ -77,47 +108,40 @@ export default class FichaTratamiento extends Component{
                     </View>
 
                     <View style={{justifyContent:'center', flexDirection: 'column', margin: 10,backgroundColor:'cyan'}}>
+                        {this.state.loading1 ?(
                         <View>
-                            <Text> Usuario: {navigation.getParam('paciente')}</Text>
+                            <Text> Tipo de Tratamiento: {tratamientoUsuario[0]["nombre"]} </Text>
+                            {tratamientoUsuario[0]["vigente"] ? (
+                                <Text> Vigencia: Si </Text>
+                            ):( <Text> Vigencia: No </Text>)}
+                            <Text> Fecha de inicio: {tratamientoUsuario[0]["fgen"]} </Text>
+                            <Text> Descripcion: {tratamientoUsuario[0]["descripcion"]}</Text>
+                            <Text> Descuento: {tratamientoUsuario[0]["descuento"]}</Text>
+                            <Text> Garantias: {tratamientoUsuario[0]["garantias"]}</Text>
+                            <Text> Resultados: {tratamientoUsuario[0]["resultados"]}</Text>
                         </View>
-
-                        <View>
-                            <Text> Tipo de Tratamiento: {navigation.getParam('tipoTratamiento')} </Text>
-                        </View>
-
-                        <View>
-                            <Text> Vigencia: {navigation.getParam('estadoTratamiento')}</Text>
-                        </View>
-
-                        <View>
-                            <Text> Fecha de inicio: {navigation.getParam('inicioTratamiento')}</Text>
-                        </View>
-
-                        <View>
-                            <Text> Descripcion: {navigation.getParam('descripcionTratamiento')}</Text>
-                        </View>
+                        ):(<View></View>)}
                     </View>
 
                 </View>
-
                 <View style={{flex:1, flexDirection: 'row'}}>
-                    <ScrollView>
+                {this.state.loading2 ?(
+                    <ScrollView> 
                         <FlatList
-                            /* aqui se llama al JSON Dentadura, lo que
-                            no se es si se puede modificar el texto dentro del json,
-                            si es asi, entonces todo lo de adentro funciona bien.*/
-
-                            data={this.props.Dentadura}
+                            data={Dentadura}
                             renderItem={({diente}) =>
                                 <ResumenDiente
-                                    idDiente={diente.idDiente}
-                                    tipoDiente={diente.tipoDiente}
-                                    estadoDiente={diente.estadoDiente}
-                                    comentarioDiente={diente.comentarioDiente}
+                                    //Arreglame
+                                    idDiente={'diente.iddiente'}
+                                    tipoDiente={'diente.tipoDiente'}
+                                    estadoDiente={'diente.estado'}
+                                    comentarioDiente={'diente.comentario_detallado'}
                                 />
                             }
                         />
+                        
                     </ScrollView>
+                    ):(<View></View>)}
                 </View>
 
             </View>

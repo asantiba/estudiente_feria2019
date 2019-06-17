@@ -55,7 +55,7 @@ def get_diente(request, iddiente):
 #   int: 'idpaciente'
 def get_dentadura_by_paciente(request):
     if request.method == "GET":
-        rest_list = Dentadura.objects.raw('SELECT * FROM dentadura WHERE idpaciente=' + str(1))
+        rest_list = Dentadura.objects.raw('SELECT * FROM dentadura WHERE idpaciente=' + str(189589145))
         print(rest_list)
         serializer = DentaduraSerializer(rest_list, many=True)
         return JsonResponse(serializer.data, safe=False)
@@ -95,7 +95,7 @@ def get_dentaduras(request):
 #   int: 'idpaciente'
 def get_paciente(request):
     if request.method == "GET":
-        rest_list = Paciente.objects.raw('SELECT paciente.* FROM paciente WHERE idpaciente=' + str(1))
+        rest_list = Paciente.objects.raw('SELECT paciente.* FROM paciente WHERE idpaciente=' + str(189589145))
         print(rest_list)
         serializer = PacienteSerializer(rest_list, many=True)
         return JsonResponse(serializer.data, safe=False)
