@@ -67,7 +67,7 @@ export default class FichaTratamiento extends Component{
     }
     componentDidMount() {
         const self = this;
-        axios.get('http://192.168.0.12:8000/get_tratamiento_by_paciente/189589145') //tiene que ser TU ip
+        axios.get('http://192.168.0.12:8000/get_tratamiento_by_paciente/1') //tiene que ser TU ip
         .then((response) => {
           this.setState({dictos:response.data});
           this.setState({loading1:true})
