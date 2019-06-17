@@ -155,6 +155,16 @@ def get_ficha_by_paciente(request):
         d = {k:v for k, v in d_d} # las tublas se vuelven un diccionario
         return JsonResponse(d, safe=False)
 
+######### Tratamiento #########
+
+# Retorna el tratamiento de un paciente segun su idpaciente
+# @params
+#   int: 'idpaciente'
+def get_tratamiento_by_paciente(request, idpaciente):
+    if request.method == "GET":
+        rest_list = Tratamiento.objects.raw('SELECT paciente.idpaciente, paciente.nombre as paciente, tratamiento.* FROM paciente LEFT JOIN paciente_tratado ON paciente.idpaciente=paciente_tratado.idpaciente LEFT JOIN tratamiento ON tratamiento.idtratamiento=paciente_tratado.idtratamiento WHERE paciente.idpaciente=1 LIMIT 1')
+        serializer = TratamientoSerializer(rest_list, many=True)
+        return JsonResponse(serializer.data, safe=False)
 
 
 
