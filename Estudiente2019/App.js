@@ -8,6 +8,8 @@ import ModalDiente from './modal';
 import RegistroUsuario from './RegistroUsuario';
 import FichaPaciente from './FichaPaciente';
 import FichaBloqueada from './FichaBloqueada';
+import FichaTratamiento from './Tratamiento';
+import EditarFicha from './EditarFicha';
 import axios from 'axios';
 
 
@@ -86,7 +88,9 @@ const RootStack = createStackNavigator(
     Modelo: ModeloDental,
     Registro: RegistroUsuario,
     Ficha: FichaPaciente,
-	  Bloqueada: FichaBloqueada
+	  Bloqueada: FichaBloqueada,
+    UltimoTratamiento: FichaTratamiento,
+    EditarFicha: EditarFicha,
   },
   {
     initialRouteName: 'Home',

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Dimensions, ScrollView, Platform, StyleSheet, Text, View, AppRegistry, FlatList} from 'react-native';
+import {Button, Dimensions, ScrollView, Platform, StyleSheet, Text, View, AppRegistry, FlatList} from 'react-native';
 import FormDiente from './Formulario';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import axios from 'axios';
@@ -20,7 +20,6 @@ class ResumenDiente extends Component{
     render(){
         return(
         <View style={{justifyContent:'center', alignItems: 'center', margin: 20, flex:1,backgroundColor:'midnightblue'}}>
-            <View style={{flex:1 ,flexDirection: 'column'}}>
                 <View style={{flexDirection: 'row'}}>
                     <View style={{margin: 30, marginTop: 5, marginBottom:5, justifyContent:'center', alignItems: 'center'}}>
                         <Text style={{color:'white', fontSize : 0.05*SCREEN_WIDTH, fontWeight: 'bold'}}>
@@ -46,16 +45,8 @@ class ResumenDiente extends Component{
                             Comentario: {this.props.comentarioDiente}.
                         </Text>
                     </View>
-                    <View style={{justifyContent:'center', alignItems: 'center', margin: 5}}>
-                        <FormDiente
-                            idDiente={this.props.idDiente}
-                            tipoDiente={this.props.tipoDiente}
-                            estadoDiente={this.props.estadoDiente}
-                            comentarioDiente={this.props.comentarioDiente}
-                        />
-                    </View>
+                    
                 </View>
-            </View>
         </View>
         );
     }
@@ -122,6 +113,8 @@ export default class FichaTratamiento extends Component{
                         </View>
                         ):(<View></View>)}
                     </View>
+                    <Button title="editar ficha"
+                        onPress={() => this.props.navigation.navigate('EditarFicha')} />
 
                 </View>
                 <View style={{flex:1, flexDirection: 'row'}}>
@@ -129,13 +122,13 @@ export default class FichaTratamiento extends Component{
                     <ScrollView> 
                         <FlatList
                             data={Dentadura}
-                            renderItem={({diente}) =>
+                            renderItem={({item}) =>
                                 <ResumenDiente
                                     //Arreglame
-                                    idDiente={'diente.iddiente'}
-                                    tipoDiente={'diente.tipoDiente'}
-                                    estadoDiente={'diente.estado'}
-                                    comentarioDiente={'diente.comentario_detallado'}
+                                    idDiente={item.iddiente}
+                                    tipoDiente={'incisivo central'}
+                                    estadoDiente={item.estado}
+                                    comentarioDiente={item.comentario_detallado}
                                 />
                             }
                         />
@@ -143,10 +136,10 @@ export default class FichaTratamiento extends Component{
                     </ScrollView>
                     ):(<View></View>)}
                 </View>
-
             </View>
 
 
         );
     }
 }
+

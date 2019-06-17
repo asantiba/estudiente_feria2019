@@ -38,11 +38,15 @@ urlpatterns = [
     # Url Ficha
     url(r'^get_ficha_by_paciente/', views.get_ficha_by_paciente, name='get_ficha_by_paciente'),
 
-    # Post Paciente
-    url(r'post_paciente/',views.post_paciente, name= 'post_paciente'),
-
     # Url Tratamiento
     url(r'^get_tratamiento_by_paciente/(?P<idpaciente>\d+)/$', views.get_tratamiento_by_paciente, name='get_tratamiento_by_paciente'),
+
+    # Post Paciente
+
+    url(r'post_paciente/',views.post_paciente, name= 'post_paciente'),
+
+    # Update Tratamiento
+    url(r'update_tratamiento/',views.update_tratamiento, name= 'update_tratamiento'),
 
     # Url Admin
     url(r'^admin/', admin.site.urls),

@@ -166,7 +166,25 @@ def get_tratamiento_by_paciente(request, idpaciente):
         serializer = TratamientoSerializer(rest_list, many=True)
         return JsonResponse(serializer.data, safe=False)
 
-
-
-
+# Actualiza los datos de una ficha de tratamiento
+# @params
+#   int: 'idtratamiento'
+def update_tratamiento(request):
+    datos = json.loads(request.body.decode('utf-8'))['value']
+    if datos["nombre"]:
+        Tratamiento.objects.filter(idtratamiento='1').update(nombre=datos["nombre"])
+    if datos["vigente"]:
+        Tratamiento.objects.filter(idtratamiento='1').update(vigente=datos["vigente"])
+    if datos["fgen"]:
+        Tratamiento.objects.filter(idtratamiento='1').update(fgen=datos["fgen"])
+    if datos["descripcion"]:
+        Tratamiento.objects.filter(idtratamiento='1').update(descripcion=datos["descripcion"])
+    if datos["descuento"]:
+        Tratamiento.objects.filter(idtratamiento='1').update(descuento=datos["descuento"])
+    if datos["garantias"]:
+        Tratamiento.objects.filter(idtratamiento='1').update(garantias=datos["garantias"])
+    if datos["resultados"]:
+        Tratamiento.objects.filter(idtratamiento='1').update(resultados=datos["resultados"])
+    return None
+            
 

@@ -87,12 +87,8 @@ export default class RegistroUsuario extends Component {
     const value = this._form.getValue();
     console.log('value: ', value);
     axios.post(
-      'http://10.112.12.155:8000/post_paciente/id', 
-      {value,
-        params: {
-          id: 11
-        }
-      }
+      'http://192.168.0.12:8000/post_paciente/', 
+      {value}
   );
   alert('Registrado');
   }

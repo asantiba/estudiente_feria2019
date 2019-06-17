@@ -3,12 +3,7 @@ import {Button, FlatList, Image, StyleSheet, Text, View} from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import axios from 'axios';
 
-import FichaTratamiento from './Tratamiento';
-
-//Cambiar este User defecto por el JSON respectivo que le corresponde
-
-
-class FichaPaciente extends Component {
+export default class FichaPaciente extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -72,22 +67,3 @@ const styles = StyleSheet.create({
     height: 44,
   },
 })
-
-//Navegador a tratamientos
-const RootStack = createStackNavigator(
-  {
-    Home: FichaPaciente,
-    UltimoTratamiento: FichaTratamiento,
-  },
-  {
-    initialRouteName: 'Home',
-  }
-);
-
-const AppContainer = createAppContainer(RootStack);
-
-export default class App extends React.Component {
-  render() {
-    return <AppContainer />;
-  }
-}
