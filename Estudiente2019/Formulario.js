@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
 import {AppRegistry, Image, Picker, TextInput} from 'react-native';
 import {Modal, TouchableHighlight, Alert, TouchableOpacity, TouchableWithoutFeedback, Rectangle, Dimensions} from 'react-native';
+import axios from 'axios';
 
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -10,29 +11,28 @@ const Alto = 60;
 const Ancho = 200;
 
 export default class FormDiente extends Component {
-    state = {
-        modalVisible: false,
-        pickerCarie: "default_value",
-        pickerComentario: "",
-    };
+    
+     modalVisible= false;
+
     setModalVisible(visible) {
-        this.setState({modalVisible: visible});
+        this.modalVisible= visible;
     };
+    
     setAllToDB(){
     };
 
     render() {
-        this.setState({pickerCarie: this.props.estadoDiente});
-        this.setState({pickerComentario: this.props.comentarioDiente});
+        let pickerCarie= this.props.estadoDiente;
+        let pickerComentario = this.props.comentarioDiente;
 
         return (
             <View style={{justifyContent:'center', alignItems: 'center'}}>
                 <Modal
                 animationType="slide"
                 transparent={true}
-                visible={this.state.modalVisible}
+                visible={this.modalVisible}
                 onRequestClose={() => {
-                this.setModalVisible(!this.state.modalVisible);
+                this.setModalVisible(!this.modalVisible);
                 }}>
                     <View style={{margin: 30, backgroundColor: '#f0f8ff'}}>
                         <View style={{flex: 1}}>
@@ -55,10 +55,10 @@ export default class FormDiente extends Component {
                                         </Text>
                                     </View>
                                     <Picker
-                                    selectedValue= {this.state.pickerCarie}
+                                    selectedValue= {pickerCarie}
                                     style={{height: Alto, width: Ancho}}
                                     onValueChange={(itemValue, itemIndex) =>
-                                    this.setState({pickerCarie: itemValue})}>
+                                        pickerCarie= itemValue }>
                                         <Picker.Item label='Sano' value= 'sin_Caries'/>
                                         <Picker.Item label='Carie Arriba' value= 'carie_arriba'/>
                                         <Picker.Item label='Carie Adelante' value= 'carie_adelante'/>
@@ -76,9 +76,9 @@ export default class FormDiente extends Component {
                                 numberOfLines = {3}
                                 placeholder = 'Escribir un Comentario'
                                 onChangeText={(texto) => {
-                                this.setState({pickerComentario: texto});
+                                pickerComentario= texto;
                                 }}
-                                value={this.state.pickerComentario}/>
+                                value={pickerComentario}/>
                             </ScrollView>
                         </View>
 
@@ -86,9 +86,9 @@ export default class FormDiente extends Component {
                         <View style={{height: 50,marginBottom: 10, backgroundColor:'#f0f8ff', flexDirection: 'row' }}>
                             <TouchableOpacity
                             onPress={() => {
-                                this.setModalVisible(!this.state.modalVisible);
-                                this.props.estadoDiente= this.state.pickerCarie;
-                                this.props.comentarioDienteDiente= this.state.pickerComentario;
+                                this.setModalVisible(!this.modalVisible);
+                                this.props.estadoDiente= pickerCarie;
+                                this.props.comentarioDienteDiente= pickerComentario;
                             }}
                             style={{justifyContent:'center', alignItems: 'center', margin: 5, flex:1,backgroundColor:'midnightblue'}}>
                                 <Text style={{color: '#f0f8ff', fontWeight: 'bold', fontSize: 20, justifyContent:'center', alignItems: 'center'}}>
@@ -97,9 +97,9 @@ export default class FormDiente extends Component {
                             </TouchableOpacity>
                             <TouchableOpacity
                             onPress={() => {
-                                this.setModalVisible(!this.state.modalVisible);
-                                this.setState({pickerCarie: this.props.estadoDiente});
-                                this.setState({pickerComentario: this.props.comentarioDienteDiente});
+                                this.setModalVisible(!this.modalVisible);
+                                pickerCarie = this.props.estadoDiente;
+                                pickerComentario= this.props.comentarioDienteDiente;
                             }}
                             style={{justifyContent:'center', alignItems: 'center', margin: 5, flex:1, backgroundColor:'orange'}}>
                                 <Text style={{color: '#f0f8ff', fontWeight: 'bold', fontSize: 20, justifyContent:'center', alignItems: 'center'}}>

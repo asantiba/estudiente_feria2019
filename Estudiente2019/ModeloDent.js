@@ -199,7 +199,7 @@ export default class ModeloDental extends Component {
 	  
 	  componentDidMount() {
 		const self = this;
-		axios.get('http://192.168.43.212:8000/get_ficha_by_paciente/')
+		axios.get('http://192.168.0.12:8000/get_ficha_by_paciente/')
 		.then((response) => {
 		  this.setState({dictos:response.data});
 		  this.setState({loading:true})
@@ -212,7 +212,7 @@ export default class ModeloDental extends Component {
 		});
 	  }
 	  fetchDataFromApi = ()  => {
-		const url = "http://127.0.0.1:8000/get_dent_list";
+		const url = "http://192.168.0.12:8000/get_dent_list";
 	
 		this.setState({ loading: true });
 	
@@ -245,7 +245,7 @@ export default class ModeloDental extends Component {
 	  
 	  
 	render() {
-		var cosa = {"11":"","21":""};
+		//var cosa = {"11":"","21":""};
 		var cosa = this.state.dictos; // Soy pesimo para bautizar variables y son las 4.am pero cosa[id del diente] y obtienen el json correspondiente
 		return (
 			<View style={{

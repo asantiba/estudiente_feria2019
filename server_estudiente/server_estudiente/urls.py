@@ -40,8 +40,8 @@ urlpatterns = [
     # Url Ficha
     url(r'^get_ficha_by_paciente/(?P<idpaciente>\d+)/$', views.get_ficha_by_paciente, name='get_ficha_by_paciente'),
 
-    # Url Tratamiento
-    url(r'^get_tratamiento_by_paciente/(?P<idpaciente>\d+)/$', views.get_tratamiento_by_paciente, name='get_tratamiento_by_paciente'),
+    # Update Tratamiento
+    url(r'update_tratamiento/',views.update_tratamiento, name= 'update_tratamiento'),
 
     # Url Admin
     url(r'^admin/', admin.site.urls),
