@@ -53,9 +53,9 @@ def get_diente(request, iddiente):
 # Retorna todos los dientes de un paciente segun su idpaciente
 # @params:
 #   int: 'idpaciente'
-def get_dentadura_by_paciente(request):
+def get_dentadura_by_paciente(request, idpaciente):
     if request.method == "GET":
-        rest_list = Dentadura.objects.raw('SELECT * FROM dentadura WHERE idpaciente=' + str(1))
+        rest_list = Dentadura.objects.raw('SELECT * FROM dentadura WHERE idpaciente=' + idpaciente)
         print(rest_list)
         serializer = DentaduraSerializer(rest_list, many=True)
         return JsonResponse(serializer.data, safe=False)
@@ -75,7 +75,7 @@ def get_diente_by_paciente(request, iddiente, idpaciente):
 #   int: 'iddentadura'
 def get_dentadura(request, iddentadura):
     if request.method == "GET":
-        rest_list = Dentadura.objects.filter(iddentadura=iddentadura).values()
+        rest_list = Dentadura.objects.raw('SELECT * FROM dentadura WHERE iddentadura=' + iddentadura)
         serializer = DentaduraSerializer(rest_list, many=True)
         return JsonResponse(serializer.data, safe=False)
 
@@ -93,9 +93,9 @@ def get_dentaduras(request):
 # Retorna todos los datos de un paciente segun su idpaciente
 # @params:
 #   int: 'idpaciente'
-def get_paciente(request):
+def get_paciente(request, idpaciente):
     if request.method == "GET":
-        rest_list = Paciente.objects.raw('SELECT paciente.* FROM paciente WHERE idpaciente=' + str(1))
+        rest_list = Paciente.objects.raw('SELECT paciente.* FROM paciente WHERE idpaciente=' + idpaciente)
         print(rest_list)
         serializer = PacienteSerializer(rest_list, many=True)
         return JsonResponse(serializer.data, safe=False)
@@ -145,9 +145,9 @@ def post_paciente(request):
 # Retorna todos los dientes de un paciente segun su idpaciente
 # @params
 #   int: 'idpaciente'
-def get_ficha_by_paciente(request):
+def get_ficha_by_paciente(request, idpaciente):
     if request.method == "GET":
-        rest_list = Dentadura.objects.raw('SELECT dentadura.*, diente.* FROM paciente LEFT JOIN dentadura ON dentadura.idpaciente=paciente.idpaciente LEFT JOIN diente ON dentadura.iddiente=diente.iddiente WHERE paciente.idpaciente=' + str(9966))
+        rest_list = Dentadura.objects.raw('SELECT dentadura.*, diente.* FROM paciente LEFT JOIN dentadura ON dentadura.idpaciente=paciente.idpaciente LEFT JOIN diente ON dentadura.iddiente=diente.iddiente WHERE paciente.idpaciente=' + idpaciente)
         serializer = DentaduraSerializer(rest_list, many=True)
         lista_datos = serializer.data
         l_d = [dict(i) for i in lista_datos] # se transforma en una lista para poder iterar en ella
@@ -162,9 +162,17 @@ def get_ficha_by_paciente(request):
 #   int: 'idpaciente'
 def get_tratamiento_by_paciente(request, idpaciente):
     if request.method == "GET":
-        rest_list = Tratamiento.objects.raw('SELECT paciente.idpaciente, paciente.nombre as paciente, tratamiento.* FROM paciente LEFT JOIN paciente_tratado ON paciente.idpaciente=paciente_tratado.idpaciente LEFT JOIN tratamiento ON tratamiento.idtratamiento=paciente_tratado.idtratamiento WHERE paciente.idpaciente=1 LIMIT 1')
-        serializer = TratamientoSerializer(rest_list, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        tratamiento = Tratamiento.objects.raw('SELECT paciente.idpaciente, paciente.nombre as paciente, tratamiento.* FROM paciente LEFT JOIN paciente_tratado ON paciente.idpaciente=paciente_tratado.idpaciente LEFT JOIN tratamiento ON tratamiento.idtratamiento=paciente_tratado.idtratamiento WHERE paciente.idpaciente=' + idpaciente + ' LIMIT 1')
+        s_tratamiento = TratamientoSerializer(tratamiento, many=True)
+
+        tratamiento_medico = TratamientoMedico.objects.raw('SELECT tratamiento_medico.idtratamiento_medico, tratamiento_medico.trat FROM tratamiento_medico WHERE tratamiento_medico.idtratamiento_medico=1 LIMIT 1')
+        s_tratamiento_medico = TratamientoMedicoSerializer(tratamiento_medico, many=True)
+
+        s_tratamiento.data[0].update({"nombre": "Diagnostico"})
+        
+        # newdict={'nombre':'Diag'}
+        # newdict.update(serializer.data)
+        return JsonResponse(s_tratamiento.data, safe=False)
 
 
 

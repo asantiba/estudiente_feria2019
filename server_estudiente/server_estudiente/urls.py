@@ -19,9 +19,10 @@ from server_estudiente.App import views
 
 
 urlpatterns = [
+    
+    # Url Estudiente
     url(r'^get_estudientes/', views.get_estudientes, name='get_estudientes'),
     url(r'^get_table_estudientes/', views.get_table_estudientes, name='get_table_estudientes'),
-    # url(r'^get_dent_list/', views.get_dent_list, name='get_dent_list'),
 
     # Url Diente
     url(r'^get_dientes/', views.get_dientes, name='get_dientes'),
@@ -29,17 +30,15 @@ urlpatterns = [
 
     # Url Dentadura
     url(r'^get_diente_by_paciente/(?P<iddiente>\d+)/(?P<idpaciente>\d+)/$', views.get_diente_by_paciente, name='get_diente_by_paciente'),
-    url(r'^get_dentadura_by_paciente/', views.get_dentadura_by_paciente, name='get_dentadura_by_paciente'),
+    url(r'^get_dentadura_by_paciente/(?P<idpaciente>\d+)/$', views.get_dentadura_by_paciente, name='get_dentadura_by_paciente'),
     url(r'^get_dentadura/(?P<iddentadura>\d+)/$', views.get_dentadura, name='get_dentadura'),
 
     # Url Paciente
-    url(r'^get_paciente/', views.get_paciente, name='get_paciente'),
+    url(r'^get_paciente/(?P<idpaciente>\d+)/$', views.get_paciente, name='get_paciente'),
+    url(r'post_paciente/',views.post_paciente, name= 'post_paciente'),
 
     # Url Ficha
-    url(r'^get_ficha_by_paciente/', views.get_ficha_by_paciente, name='get_ficha_by_paciente'),
-
-    # Post Paciente
-    url(r'post_paciente/',views.post_paciente, name= 'post_paciente'),
+    url(r'^get_ficha_by_paciente/(?P<idpaciente>\d+)/$', views.get_ficha_by_paciente, name='get_ficha_by_paciente'),
 
     # Url Tratamiento
     url(r'^get_tratamiento_by_paciente/(?P<idpaciente>\d+)/$', views.get_tratamiento_by_paciente, name='get_tratamiento_by_paciente'),

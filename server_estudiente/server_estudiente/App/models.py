@@ -21,6 +21,17 @@ class Administrador(models.Model):
         db_table = 'administrador'
 
 
+class Alergia(models.Model):
+    idalergia = models.AutoField(primary_key=True)
+    idpaciente = models.ForeignKey('Paciente', models.DO_NOTHING, db_column='idpaciente', blank=True, null=True)
+    alergia = models.CharField(max_length=45, blank=True, null=True)
+    periodo = models.CharField(max_length=45, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'alergia'
+
+
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
 
@@ -112,6 +123,23 @@ class Dentadura(models.Model):
         db_table = 'dentadura'
 
 
+class Dentograma(models.Model):
+    iddentograma = models.AutoField(primary_key=True)
+    iddentadura = models.ForeignKey(Dentadura, models.DO_NOTHING, db_column='iddentadura', blank=True, null=True)
+    caries = models.CharField(max_length=45, blank=True, null=True)
+    ubicacion = models.CharField(max_length=45, blank=True, null=True)
+    actividad = models.CharField(max_length=45, blank=True, null=True)
+    rxbitew = models.CharField(max_length=45, blank=True, null=True)
+    tda = models.CharField(max_length=45, blank=True, null=True)
+    fluorosis = models.CharField(max_length=45, blank=True, null=True)
+    comentario_tda = models.CharField(max_length=100, blank=True, null=True)
+    comentario_fluorosis = models.CharField(max_length=100, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dentograma'
+
+
 class Denuncia(models.Model):
     iddenuncia = models.AutoField(primary_key=True)
     idestudiente = models.ForeignKey('Estudiente', models.DO_NOTHING, db_column='idestudiente', blank=True, null=True)
@@ -139,8 +167,8 @@ class DetalleEnfermedad(models.Model):
 
 class Diente(models.Model):
     iddiente = models.IntegerField(primary_key=True)
-    posicion = models.CharField(max_length=45, blank=True, null=True)
     tipo = models.CharField(max_length=45, blank=True, null=True)
+    posicion = models.CharField(max_length=45, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -202,9 +230,9 @@ class Enfermedad(models.Model):
 
 class Estudiente(models.Model):
     idestudiente = models.IntegerField(primary_key=True)
+    iduniversidad = models.ForeignKey('Universidad', models.DO_NOTHING, db_column='iduniversidad', blank=True, null=True)
     nombre = models.CharField(max_length=45)
     apellido = models.CharField(max_length=45, blank=True, null=True)
-    universidad = models.CharField(max_length=45, blank=True, null=True)
     correo = models.CharField(max_length=45)
     anio_carrera = models.IntegerField(blank=True, null=True)
 
@@ -236,18 +264,6 @@ class EstudienteValidado(models.Model):
         db_table = 'estudiente_validado'
 
 
-class EstudienteVotacion(models.Model):
-    idestudiente_votacion = models.AutoField(primary_key=True)
-    idestudiente = models.ForeignKey(Estudiente, models.DO_NOTHING, db_column='idestudiente')
-    idpaciente = models.ForeignKey('Paciente', models.DO_NOTHING, db_column='idpaciente')
-    votacion = models.IntegerField(blank=True, null=True)
-    fgen = models.DateTimeField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'estudiente_votacion'
-
-
 class Ficha(models.Model):
     idficha = models.AutoField(primary_key=True)
     idpaciente = models.ForeignKey('Paciente', models.DO_NOTHING, db_column='idpaciente')
@@ -257,6 +273,17 @@ class Ficha(models.Model):
     class Meta:
         managed = False
         db_table = 'ficha'
+
+
+class Habito(models.Model):
+    idhabito = models.AutoField(primary_key=True)
+    idpaciente = models.ForeignKey('Paciente', models.DO_NOTHING, db_column='idpaciente', blank=True, null=True)
+    habito = models.CharField(max_length=45, blank=True, null=True)
+    periodo = models.CharField(max_length=45, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'habito'
 
 
 class HorarioDisponible(models.Model):
@@ -342,16 +369,30 @@ class PacienteTratado(models.Model):
         db_table = 'paciente_tratado'
 
 
-class PacienteVotacion(models.Model):
-    idpaciente_votacion = models.AutoField(primary_key=True)
-    idpaciente = models.ForeignKey(Paciente, models.DO_NOTHING, db_column='idpaciente')
-    idestudiente = models.ForeignKey(Estudiente, models.DO_NOTHING, db_column='idestudiente')
-    votacion = models.IntegerField(blank=True, null=True)
-    fgen = models.CharField(max_length=45, blank=True, null=True)
+class Procedimiento(models.Model):
+    idprocedimiento = models.AutoField(primary_key=True)
+    procedimiento = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'paciente_votacion'
+        db_table = 'procedimiento'
+
+
+class ProcedimientoTratamiento(models.Model):
+    idprocedimiento_tratamiento = models.AutoField(primary_key=True)
+    idprocedimiento = models.ForeignKey(Procedimiento, models.DO_NOTHING, db_column='idprocedimiento', blank=True, null=True)
+    idtratamiento = models.ForeignKey('Tratamiento', models.DO_NOTHING, db_column='idtratamiento', blank=True, null=True)
+    procedimiento = models.CharField(max_length=45, blank=True, null=True)
+    precio = models.IntegerField(blank=True, null=True)
+    descuento = models.IntegerField(blank=True, null=True)
+    detalle = models.CharField(max_length=200, blank=True, null=True)
+    ubicacion = models.CharField(max_length=45, blank=True, null=True)
+    estado = models.CharField(max_length=45, blank=True, null=True)
+    fecha = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'procedimiento_tratamiento'
 
 
 class SolicitaAtencion(models.Model):
@@ -368,6 +409,12 @@ class SolicitaAtencion(models.Model):
 
 class TraspasoTratamiento(models.Model):
     idtraspaso_tratamiento = models.AutoField(primary_key=True)
+    idpaciente = models.ForeignKey(Paciente, models.DO_NOTHING, db_column='idpaciente', blank=True, null=True)
+    idtratamiento = models.ForeignKey('Tratamiento', models.DO_NOTHING, db_column='idtratamiento', blank=True, null=True)
+    idestudiente = models.ForeignKey(Estudiente, models.DO_NOTHING, db_column='idestudiente', blank=True, null=True)
+    comentario = models.IntegerField(blank=True, null=True)
+    vigente = models.IntegerField(blank=True, null=True)
+    f_gen = models.DateTimeField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -376,10 +423,9 @@ class TraspasoTratamiento(models.Model):
 
 class Tratamiento(models.Model):
     idtratamiento = models.AutoField(primary_key=True)
+    idtratamiento_medico = models.ForeignKey('TratamientoMedico', models.DO_NOTHING, db_column='idtratamiento_medico', blank=True, null=True)
     idestudiente = models.ForeignKey(Estudiente, models.DO_NOTHING, db_column='idestudiente', blank=True, null=True)
-    nombre = models.CharField(max_length=45, blank=True, null=True)
-    descripcion = models.TextField(blank=True, null=True)
-    precio = models.IntegerField(blank=True, null=True)
+    precio_total = models.IntegerField(blank=True, null=True)
     resultados = models.CharField(max_length=200, blank=True, null=True)
     descuento = models.IntegerField(blank=True, null=True)
     garantias = models.TextField(blank=True, null=True)
@@ -404,6 +450,17 @@ class TratamientoDiente(models.Model):
         db_table = 'tratamiento_diente'
 
 
+class TratamientoMedico(models.Model):
+    idtratamiento_medico = models.AutoField(primary_key=True)
+    trat = models.CharField(max_length=45, blank=True, null=True)
+    descripcion = models.TextField(blank=True, null=True)
+    valor_referencial = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'tratamiento_medico'
+
+
 class Universidad(models.Model):
     iduniversidad = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=200, blank=True, null=True)
@@ -414,3 +471,16 @@ class Universidad(models.Model):
     class Meta:
         managed = False
         db_table = 'universidad'
+
+
+class Votacion(models.Model):
+    idvotacion = models.AutoField(primary_key=True)
+    idestudiente = models.ForeignKey(Estudiente, models.DO_NOTHING, db_column='idestudiente')
+    idpaciente = models.ForeignKey(Paciente, models.DO_NOTHING, db_column='idpaciente')
+    votacion = models.IntegerField(blank=True, null=True)
+    votante = models.IntegerField(blank=True, null=True)
+    fgen = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'votacion'

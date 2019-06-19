@@ -7,6 +7,11 @@ class AdministradorSerializer(serializers.ModelSerializer):
         model = Administrador
         fields = '__all__'
 
+class AlergiaSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Alergia
+        fields = '__all__'
 
 class AuthGroupSerializer(serializers.ModelSerializer):
 
@@ -61,6 +66,12 @@ class DentaduraSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Dentadura
+        fields = '__all__'
+
+class DentogramaSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Dentograma
         fields = '__all__'
 
 
@@ -141,17 +152,17 @@ class EstudienteValidadoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class EstudienteVotacionSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = EstudienteVotacion
-        fields = '__all__'
-
-
 class FichaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Ficha
+        fields = '__all__'
+
+
+class HabitoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Habito
         fields = '__all__'
 
 
@@ -196,13 +207,17 @@ class PacienteTratadoSerializer(serializers.ModelSerializer):
         model = PacienteTratado
         fields = '__all__'
 
-
-class PacienteVotacionSerializer(serializers.ModelSerializer):
+class ProcedimientoSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = PacienteVotacion
+        model = Procedimiento
         fields = '__all__'
 
+class ProcedimientoTratamientoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ProcedimientoTratamiento
+        fields = '__all__'
 
 class SolicitaAtencionSerializer(serializers.ModelSerializer):
 
@@ -231,9 +246,21 @@ class TratamientoDienteSerializer(serializers.ModelSerializer):
         model = TratamientoDiente
         fields = '__all__'
 
+class TratamientoMedicoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = TratamientoMedico
+        fields = '__all__'
+
 
 class UniversidadSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Universidad
+        fields = '__all__'
+
+class VotacionSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Votacion
         fields = '__all__'
